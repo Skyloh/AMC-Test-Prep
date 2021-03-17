@@ -15,6 +15,7 @@
 		5D45718725FA53DD00BF2DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D45718525FA53DD00BF2DCB /* LaunchScreen.storyboard */; };
 		5D45719225FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45719125FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift */; };
 		5D45719D25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45719C25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift */; };
+		A6D827A5F2D4C77AE51D7E39 /* Pods_AMC_Test_Prepper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A836D10712026098267B4C1 /* Pods_AMC_Test_Prepper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28944023CB5B3BBC8877D131 /* Pods-AMC Test Prepper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMC Test Prepper.debug.xcconfig"; path = "Target Support Files/Pods-AMC Test Prepper/Pods-AMC Test Prepper.debug.xcconfig"; sourceTree = "<group>"; };
+		30536E413D6D17E910540EFB /* Pods-AMC Test Prepper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMC Test Prepper.release.xcconfig"; path = "Target Support Files/Pods-AMC Test Prepper/Pods-AMC Test Prepper.release.xcconfig"; sourceTree = "<group>"; };
+		5A836D10712026098267B4C1 /* Pods_AMC_Test_Prepper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMC_Test_Prepper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D45717725FA53DB00BF2DCB /* AMC Test Prepper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AMC Test Prepper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D45717A25FA53DB00BF2DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D45717C25FA53DB00BF2DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6D827A5F2D4C77AE51D7E39 /* Pods_AMC_Test_Prepper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		193C8421F43F6299E96B32E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28944023CB5B3BBC8877D131 /* Pods-AMC Test Prepper.debug.xcconfig */,
+				30536E413D6D17E910540EFB /* Pods-AMC Test Prepper.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		241C369004455BE02289585B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A836D10712026098267B4C1 /* Pods_AMC_Test_Prepper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5D45716E25FA53DB00BF2DCB = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +106,8 @@
 				5D45719025FA53DE00BF2DCB /* AMC Test PrepperTests */,
 				5D45719B25FA53DE00BF2DCB /* AMC Test PrepperUITests */,
 				5D45717825FA53DB00BF2DCB /* Products */,
+				193C8421F43F6299E96B32E7 /* Pods */,
+				241C369004455BE02289585B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D4571A125FA53DE00BF2DCB /* Build configuration list for PBXNativeTarget "AMC Test Prepper" */;
 			buildPhases = (
+				2F5C4C1BA42A3201081DC020 /* [CP] Check Pods Manifest.lock */,
 				5D45717325FA53DB00BF2DCB /* Sources */,
 				5D45717425FA53DB00BF2DCB /* Frameworks */,
 				5D45717525FA53DB00BF2DCB /* Resources */,
+				D4425701B981D1093E624347 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,6 +288,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F5C4C1BA42A3201081DC020 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AMC Test Prepper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4425701B981D1093E624347 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AMC Test Prepper/Pods-AMC Test Prepper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AMC Test Prepper/Pods-AMC Test Prepper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AMC Test Prepper/Pods-AMC Test Prepper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5D45717325FA53DB00BF2DCB /* Sources */ = {
@@ -432,6 +501,7 @@
 		};
 		5D4571A225FA53DE00BF2DCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28944023CB5B3BBC8877D131 /* Pods-AMC Test Prepper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -451,6 +521,7 @@
 		};
 		5D4571A325FA53DE00BF2DCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30536E413D6D17E910540EFB /* Pods-AMC Test Prepper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

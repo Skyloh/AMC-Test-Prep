@@ -1,0 +1,6 @@
+framework module Pods_AMC_Test_Prepper {
+  umbrella header "Pods-AMC Test Prepper-umbrella.h"
+
+  export *
+  module * { export * }
+}
