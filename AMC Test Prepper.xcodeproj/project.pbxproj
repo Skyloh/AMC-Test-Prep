@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -87,7 +87,6 @@
 				28944023CB5B3BBC8877D131 /* Pods-AMC Test Prepper.debug.xcconfig */,
 				30536E413D6D17E910540EFB /* Pods-AMC Test Prepper.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
