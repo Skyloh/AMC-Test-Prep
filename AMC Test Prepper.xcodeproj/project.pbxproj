@@ -15,6 +15,9 @@
 		5D45718725FA53DD00BF2DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D45718525FA53DD00BF2DCB /* LaunchScreen.storyboard */; };
 		5D45719225FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45719125FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift */; };
 		5D45719D25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45719C25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift */; };
+		5D897AAB260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
+		5D897AAC260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
+		5D897AAD260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		A6D827A5F2D4C77AE51D7E39 /* Pods_AMC_Test_Prepper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A836D10712026098267B4C1 /* Pods_AMC_Test_Prepper.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +56,7 @@
 		5D45719825FA53DE00BF2DCB /* AMC Test PrepperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AMC Test PrepperUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D45719C25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMC_Test_PrepperUITests.swift; sourceTree = "<group>"; };
 		5D45719E25FA53DE00BF2DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D897AAA260A129A004300A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 		5D45717925FA53DB00BF2DCB /* AMC Test Prepper */ = {
 			isa = PBXGroup;
 			children = (
+				5D897AAA260A129A004300A8 /* GoogleService-Info.plist */,
 				5D45717A25FA53DB00BF2DCB /* AppDelegate.swift */,
 				5D45717C25FA53DB00BF2DCB /* SceneDelegate.swift */,
 				5D45717E25FA53DB00BF2DCB /* ContentView.swift */,
@@ -267,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D45718725FA53DD00BF2DCB /* LaunchScreen.storyboard in Resources */,
+				5D897AAB260A129A004300A8 /* GoogleService-Info.plist in Resources */,
 				5D45718425FA53DD00BF2DCB /* Preview Assets.xcassets in Resources */,
 				5D45718125FA53DD00BF2DCB /* Assets.xcassets in Resources */,
 			);
@@ -276,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D897AAC260A129A004300A8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D897AAD260A129A004300A8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
