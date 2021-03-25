@@ -7,10 +7,13 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("yayyayya it worked, Bean battles - bean ba pow :")
+        //Scraper.prepare(site: "https://www.hackingwithswift.com/articles/112/the-ultimate-guide-to-wkwebview")
+        Text("sad")
     }
 }
 
