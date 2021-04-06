@@ -12,8 +12,20 @@ import WebKit
 struct ContentView: View {
     
     var body: some View {
-        //Scraper.prepare(site: "https://www.hackingwithswift.com/articles/112/the-ultimate-guide-to-wkwebview")
-        Text("sad")
+        
+        Button(action: {
+            Scraper.execute(site: "https://artofproblemsolving.com/wiki/index.php/2018_AMC_8_Problems/Problem_3")
+            
+        }) {
+            Text("Pray")
+                .bold()
+                .foregroundColor(Color.white)
+                .padding(.all, 10)
+                .padding(.horizontal, 30)
+                .background(Color.blue)
+                .cornerRadius(15)
+            
+        }
     }
 }
 
