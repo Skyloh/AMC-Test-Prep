@@ -9,8 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    //this contentView is different than Alex's, needs to be combined
     var body: some View {
-        Text("yayyayya it worked, Bean battles - bean ba pow :")
+        Group{
+            if user.info.isUserAuthenticated == udefined{
+                Text("loading")
+            }
+            else if userInfo.isUserAuthenticated == .signedOut{
+                LoginView()
+            }
+            else{
+                HomeView()
+            }
+        }.onAppear{
+            self.userInfo.configureFirebaseStateDidChange()
+        }
     }
 }
 

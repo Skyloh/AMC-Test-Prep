@@ -18,6 +18,8 @@
 		5D897AAB260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		5D897AAC260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		5D897AAD260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
+		61E072E3261CC418001E22A0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072E2261CC418001E22A0 /* HomeView.swift */; };
+		61E072E4261CC418001E22A0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072E2261CC418001E22A0 /* HomeView.swift */; };
 		A6D827A5F2D4C77AE51D7E39 /* Pods_AMC_Test_Prepper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A836D10712026098267B4C1 /* Pods_AMC_Test_Prepper.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,7 @@
 		5D45719C25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMC_Test_PrepperUITests.swift; sourceTree = "<group>"; };
 		5D45719E25FA53DE00BF2DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D897AAA260A129A004300A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		61E072E2261CC418001E22A0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,7 @@
 				5D45717A25FA53DB00BF2DCB /* AppDelegate.swift */,
 				5D45717C25FA53DB00BF2DCB /* SceneDelegate.swift */,
 				5D45717E25FA53DB00BF2DCB /* ContentView.swift */,
+				61E072E2261CC418001E22A0 /* HomeView.swift */,
 				5D45718025FA53DD00BF2DCB /* Assets.xcassets */,
 				5D45718525FA53DD00BF2DCB /* LaunchScreen.storyboard */,
 				5D45718825FA53DD00BF2DCB /* Info.plist */,
@@ -344,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D45717B25FA53DB00BF2DCB /* AppDelegate.swift in Sources */,
+				61E072E3261CC418001E22A0 /* HomeView.swift in Sources */,
 				5D45717D25FA53DB00BF2DCB /* SceneDelegate.swift in Sources */,
 				5D45717F25FA53DB00BF2DCB /* ContentView.swift in Sources */,
 			);
@@ -354,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D45719225FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift in Sources */,
+				61E072E4261CC418001E22A0 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
