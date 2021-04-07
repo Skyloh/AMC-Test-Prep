@@ -14,7 +14,15 @@ struct ContentView: View {
     var body: some View {
         
         Button(action: {
-            Scraper.execute(site: "https://artofproblemsolving.com/wiki/index.php/2018_AMC_8_Problems/Problem_3")
+            /*
+            Scraper.scrapeProblemText(site: "https://artofproblemsolving.com/wiki/index.php/2018_AMC_8_Problems/Problem_3")
+            print("next problem")
+            Scraper.scrapeProblemText(site: "https://artofproblemsolving.com/wiki/index.php/2018_AMC_8_Problems/Problem_8")
+            print("next problem")
+ */
+            print(Scraper.scrapeSolutionText(site: "https://artofproblemsolving.com/wiki/index.php/2018_AMC_8_Problems/Problem_3"))
+ 
+            
             
         }) {
             Text("Pray")
