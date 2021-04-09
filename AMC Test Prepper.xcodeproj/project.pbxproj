@@ -16,6 +16,7 @@
 		5D45719225FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45719125FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift */; };
 		5D45719D25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45719C25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift */; };
 		5D4CE6A4261C894200616E76 /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CE6A3261C894200616E76 /* Scraper.swift */; };
+		5D860DBB2620D1DC003181D3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D860DBA2620D1DC003181D3 /* Question.swift */; };
 		5D897AAB260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		5D897AAC260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		5D897AAD260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
@@ -58,6 +59,7 @@
 		5D45719C25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMC_Test_PrepperUITests.swift; sourceTree = "<group>"; };
 		5D45719E25FA53DE00BF2DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D4CE6A3261C894200616E76 /* Scraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scraper.swift; sourceTree = "<group>"; };
+		5D860DBA2620D1DC003181D3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		5D897AAA260A129A004300A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 				5D45718825FA53DD00BF2DCB /* Info.plist */,
 				5D45718225FA53DD00BF2DCB /* Preview Content */,
 				5D4CE6A3261C894200616E76 /* Scraper.swift */,
+				5D860DBA2620D1DC003181D3 /* Question.swift */,
 			);
 			path = "AMC Test Prepper";
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D860DBB2620D1DC003181D3 /* Question.swift in Sources */,
 				5D4CE6A4261C894200616E76 /* Scraper.swift in Sources */,
 				5D45717B25FA53DB00BF2DCB /* AppDelegate.swift in Sources */,
 				5D45717D25FA53DB00BF2DCB /* SceneDelegate.swift in Sources */,
