@@ -15,9 +15,13 @@ struct ContentView: View {
     
     var body: some View {
         
-        //this is an Image object, so modifiers should work on it
-        question.loadFromIndex(index: 3)
-        
+        HStack{
+            //this is an Image object, so modifiers should work on it
+            question.loadFromIndex(index: 3)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            
+        }
     }
 }
 
