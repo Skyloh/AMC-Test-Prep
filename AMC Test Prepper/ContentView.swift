@@ -7,14 +7,17 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
-    
-    //this contentView is different than Alex's, needs to be combined
+    @EnvironmentObject var userInfo : UserInfo
+
     var body: some View {
+
         Group{
-            if user.info.isUserAuthenticated == udefined{
-                Text("loading")
+
+            if userInfo.isUserAuthenticated == .undefined{
+                Text("Loading")
             }
             else if userInfo.isUserAuthenticated == .signedOut{
                 LoginView()

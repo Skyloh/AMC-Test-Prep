@@ -15,11 +15,26 @@
 		5D45718725FA53DD00BF2DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D45718525FA53DD00BF2DCB /* LaunchScreen.storyboard */; };
 		5D45719225FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45719125FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift */; };
 		5D45719D25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45719C25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift */; };
-		5D897AAB260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
-		5D897AAC260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
-		5D897AAD260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		61E072E3261CC418001E22A0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072E2261CC418001E22A0 /* HomeView.swift */; };
 		61E072E4261CC418001E22A0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072E2261CC418001E22A0 /* HomeView.swift */; };
+		61E072E7261DFFBC001E22A0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072E6261DFFBC001E22A0 /* LoginView.swift */; };
+		61E072E8261DFFBC001E22A0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072E6261DFFBC001E22A0 /* LoginView.swift */; };
+		61E072EA261E009A001E22A0 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072E9261E009A001E22A0 /* UserInfo.swift */; };
+		61E072EB261E009A001E22A0 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072E9261E009A001E22A0 /* UserInfo.swift */; };
+		61E072ED261E0192001E22A0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072EC261E0192001E22A0 /* ImagePicker.swift */; };
+		61E072EE261E0192001E22A0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072EC261E0192001E22A0 /* ImagePicker.swift */; };
+		61E072F0261E0740001E22A0 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072EF261E0740001E22A0 /* SignUpView.swift */; };
+		61E072F1261E0740001E22A0 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072EF261E0740001E22A0 /* SignUpView.swift */; };
+		61E072F3261E95D9001E22A0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072F2261E95D9001E22A0 /* UserViewModel.swift */; };
+		61E072F4261E95DA001E22A0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072F2261E95D9001E22A0 /* UserViewModel.swift */; };
+		61E072F6261E9A51001E22A0 /* SignInWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072F5261E9A51001E22A0 /* SignInWithEmailView.swift */; };
+		61E072F7261E9A51001E22A0 /* SignInWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072F5261E9A51001E22A0 /* SignInWithEmailView.swift */; };
+		61E072F9261E9C48001E22A0 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072F8261E9C48001E22A0 /* ForgotPasswordView.swift */; };
+		61E072FA261E9C48001E22A0 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072F8261E9C48001E22A0 /* ForgotPasswordView.swift */; };
+		61E072FC261F454F001E22A0 /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072FB261F454F001E22A0 /* LoadImage.swift */; };
+		61E072FD261F454F001E22A0 /* LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E072FB261F454F001E22A0 /* LoadImage.swift */; };
+		61E072FF261F49D8001E22A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61E072FE261F49D8001E22A0 /* GoogleService-Info.plist */; };
+		61E07300261F49D8001E22A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61E072FE261F49D8001E22A0 /* GoogleService-Info.plist */; };
 		A6D827A5F2D4C77AE51D7E39 /* Pods_AMC_Test_Prepper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A836D10712026098267B4C1 /* Pods_AMC_Test_Prepper.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +73,16 @@
 		5D45719825FA53DE00BF2DCB /* AMC Test PrepperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AMC Test PrepperUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D45719C25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMC_Test_PrepperUITests.swift; sourceTree = "<group>"; };
 		5D45719E25FA53DE00BF2DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D897AAA260A129A004300A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		61E072E2261CC418001E22A0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		61E072E6261DFFBC001E22A0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		61E072E9261E009A001E22A0 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		61E072EC261E0192001E22A0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		61E072EF261E0740001E22A0 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		61E072F2261E95D9001E22A0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		61E072F5261E9A51001E22A0 /* SignInWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmailView.swift; sourceTree = "<group>"; };
+		61E072F8261E9C48001E22A0 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		61E072FB261F454F001E22A0 /* LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImage.swift; sourceTree = "<group>"; };
+		61E072FE261F49D8001E22A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,11 +153,11 @@
 		5D45717925FA53DB00BF2DCB /* AMC Test Prepper */ = {
 			isa = PBXGroup;
 			children = (
-				5D897AAA260A129A004300A8 /* GoogleService-Info.plist */,
+				61E072E5261DFF57001E22A0 /* login and sign in */,
 				5D45717A25FA53DB00BF2DCB /* AppDelegate.swift */,
+				61E072FE261F49D8001E22A0 /* GoogleService-Info.plist */,
 				5D45717C25FA53DB00BF2DCB /* SceneDelegate.swift */,
 				5D45717E25FA53DB00BF2DCB /* ContentView.swift */,
-				61E072E2261CC418001E22A0 /* HomeView.swift */,
 				5D45718025FA53DD00BF2DCB /* Assets.xcassets */,
 				5D45718525FA53DD00BF2DCB /* LaunchScreen.storyboard */,
 				5D45718825FA53DD00BF2DCB /* Info.plist */,
@@ -167,6 +190,22 @@
 				5D45719E25FA53DE00BF2DCB /* Info.plist */,
 			);
 			path = "AMC Test PrepperUITests";
+			sourceTree = "<group>";
+		};
+		61E072E5261DFF57001E22A0 /* login and sign in */ = {
+			isa = PBXGroup;
+			children = (
+				61E072E2261CC418001E22A0 /* HomeView.swift */,
+				61E072E9261E009A001E22A0 /* UserInfo.swift */,
+				61E072E6261DFFBC001E22A0 /* LoginView.swift */,
+				61E072FB261F454F001E22A0 /* LoadImage.swift */,
+				61E072EC261E0192001E22A0 /* ImagePicker.swift */,
+				61E072F8261E9C48001E22A0 /* ForgotPasswordView.swift */,
+				61E072EF261E0740001E22A0 /* SignUpView.swift */,
+				61E072F2261E95D9001E22A0 /* UserViewModel.swift */,
+				61E072F5261E9A51001E22A0 /* SignInWithEmailView.swift */,
+			);
+			path = "login and sign in";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D45718725FA53DD00BF2DCB /* LaunchScreen.storyboard in Resources */,
-				5D897AAB260A129A004300A8 /* GoogleService-Info.plist in Resources */,
+				61E072FF261F49D8001E22A0 /* GoogleService-Info.plist in Resources */,
 				5D45718425FA53DD00BF2DCB /* Preview Assets.xcassets in Resources */,
 				5D45718125FA53DD00BF2DCB /* Assets.xcassets in Resources */,
 			);
@@ -286,7 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D897AAC260A129A004300A8 /* GoogleService-Info.plist in Resources */,
+				61E07300261F49D8001E22A0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D897AAD260A129A004300A8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,8 +386,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D45717B25FA53DB00BF2DCB /* AppDelegate.swift in Sources */,
+				61E072F9261E9C48001E22A0 /* ForgotPasswordView.swift in Sources */,
 				61E072E3261CC418001E22A0 /* HomeView.swift in Sources */,
 				5D45717D25FA53DB00BF2DCB /* SceneDelegate.swift in Sources */,
+				61E072F6261E9A51001E22A0 /* SignInWithEmailView.swift in Sources */,
+				61E072ED261E0192001E22A0 /* ImagePicker.swift in Sources */,
+				61E072F0261E0740001E22A0 /* SignUpView.swift in Sources */,
+				61E072E7261DFFBC001E22A0 /* LoginView.swift in Sources */,
+				61E072EA261E009A001E22A0 /* UserInfo.swift in Sources */,
+				61E072FC261F454F001E22A0 /* LoadImage.swift in Sources */,
+				61E072F3261E95D9001E22A0 /* UserViewModel.swift in Sources */,
 				5D45717F25FA53DB00BF2DCB /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +404,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61E072EB261E009A001E22A0 /* UserInfo.swift in Sources */,
+				61E072FD261F454F001E22A0 /* LoadImage.swift in Sources */,
+				61E072E8261DFFBC001E22A0 /* LoginView.swift in Sources */,
+				61E072EE261E0192001E22A0 /* ImagePicker.swift in Sources */,
+				61E072F7261E9A51001E22A0 /* SignInWithEmailView.swift in Sources */,
 				5D45719225FA53DE00BF2DCB /* AMC_Test_PrepperTests.swift in Sources */,
+				61E072F1261E0740001E22A0 /* SignUpView.swift in Sources */,
+				61E072F4261E95DA001E22A0 /* UserViewModel.swift in Sources */,
+				61E072FA261E9C48001E22A0 /* ForgotPasswordView.swift in Sources */,
 				61E072E4261CC418001E22A0 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
