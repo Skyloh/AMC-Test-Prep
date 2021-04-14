@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 //This is what the user sees once they log-in
+//change 11/14
 
 struct homeView: View {
     
