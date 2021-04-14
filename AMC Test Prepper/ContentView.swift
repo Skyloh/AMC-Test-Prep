@@ -20,6 +20,7 @@ struct ContentView: View {
             question.loadFromIndex(index: 3)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+            //modifiers are not available from the sidebar, you have to look them up yourself :(
             
         }
     }

@@ -34,6 +34,7 @@ struct Scraper{
         
         return text[lower..<upper]
         
+        //I feel cool
     }
     
     //a class function that returns the text related to the problem

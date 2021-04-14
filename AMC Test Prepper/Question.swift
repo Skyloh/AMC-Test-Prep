@@ -9,6 +9,8 @@
 import Foundation
 import SwiftUI
 
+//when making a Question, CACHE IT
+//these methods are taxing to call
 struct Question{
     
     var problemText : String
