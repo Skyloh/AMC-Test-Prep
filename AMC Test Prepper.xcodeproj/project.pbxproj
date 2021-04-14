@@ -19,6 +19,7 @@
 		5D897AAC260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		5D897AAD260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		A6D827A5F2D4C77AE51D7E39 /* Pods_AMC_Test_Prepper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A836D10712026098267B4C1 /* Pods_AMC_Test_Prepper.framework */; };
+		AF8E6F6B261C888000A9C936 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8E6F6A261C888000A9C936 /* homeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		5D45719C25FA53DE00BF2DCB /* AMC_Test_PrepperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMC_Test_PrepperUITests.swift; sourceTree = "<group>"; };
 		5D45719E25FA53DE00BF2DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D897AAA260A129A004300A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AF8E6F6A261C888000A9C936 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				5D45718525FA53DD00BF2DCB /* LaunchScreen.storyboard */,
 				5D45718825FA53DD00BF2DCB /* Info.plist */,
 				5D45718225FA53DD00BF2DCB /* Preview Content */,
+				AF8E6F6A261C888000A9C936 /* homeView.swift */,
 			);
 			path = "AMC Test Prepper";
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D45717B25FA53DB00BF2DCB /* AppDelegate.swift in Sources */,
+				AF8E6F6B261C888000A9C936 /* homeView.swift in Sources */,
 				5D45717D25FA53DB00BF2DCB /* SceneDelegate.swift in Sources */,
 				5D45717F25FA53DB00BF2DCB /* ContentView.swift in Sources */,
 			);

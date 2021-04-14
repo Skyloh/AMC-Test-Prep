@@ -10,7 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("yayyayya it worked, Bean battles - bean ba pow :")
+        
+        Group{
+            homeView()
+        }
+        //Text("yayyayya it worked, Bean battles - bean ba pow :")
     }
 }
 

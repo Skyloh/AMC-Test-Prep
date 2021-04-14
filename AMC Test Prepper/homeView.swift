@@ -7,10 +7,36 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
+//This is what the user sees once they log-in
 
 struct homeView: View {
+    
+    @State private var count = 0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        ZStack{
+            Rectangle().fill(Color("color1"))
+            
+            VStack{
+                
+                Spacer()
+                
+                Text("AMC Test Prep *logo to be added").foregroundColor(Color("color4"))
+                
+                Spacer()
+                
+                Text("Flash Cards").foregroundColor(Color("color2")).onTapGesture {
+                    self.count += 1
+                }
+                
+                Spacer()
+                
+            }
+        }
     }
 }
 
