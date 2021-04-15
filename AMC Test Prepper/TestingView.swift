@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TestingView: View {
     
-    @State var question = Question(site: "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16")
+    @State var question = Question(site: "https://artofproblemsolving.com/wiki/index.php/2018_AMC_8_Problems/Problem_1")
     
     var body: some View {
         VStack{
