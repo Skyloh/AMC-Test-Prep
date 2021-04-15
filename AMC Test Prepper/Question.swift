@@ -18,7 +18,7 @@ class Question{
     var imageURLs : [String]
     var tags : [String]
     
-    init(site: String){
+    init(site: String)  {
         
         problemText = Scraper.scrapeProblemText(site: site)
         solutionText = Scraper.scrapeSolutionText(site: site)
@@ -27,14 +27,17 @@ class Question{
         
     }
     
-    convenience init(){
+    convenience init() {
         
         let random_string : String = "https://artofproblemsolving.com/wiki/index.php/20" + String(Int.random(in: 10..<18)) + "_AMC_8_Problems/Problem_" + String(Int.random(in: 1..<26))
         
         print("Now loading: " + random_string)
         
+        //archived problematic problems
         //https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_14
         //https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16
+        //https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_24
+        //https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_4
         
         self.init(site: random_string)
         
@@ -52,16 +55,15 @@ class Question{
     
     func addTag(tag: String){
         
-        tags.append(tag)
+        if !tags.contains(tag) {
+            tags.append(tag)
+        }
         
     }
     
-    static func text(site: String) -> String{
-        
-        let raw = Scraper.pullRaw(site: site)
-        
-        return String(raw[Range(NSRange(location: 1300, length: 1000), in: raw)!])
-        
+
+    func formatTextWithImages() {
+        print(self.problemText)
     }
     
     

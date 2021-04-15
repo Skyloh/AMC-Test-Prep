@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TestingView: View {
     
-    @State var question = Question(site: "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16")
+    @State var question = Question()
     
     var body: some View {
         VStack{
@@ -18,7 +18,10 @@ struct TestingView: View {
             question.loadFromIndex(index: 0).resizable().aspectRatio(contentMode: .fit)
             Text(question.solutionText)
             
+            
+            
             Button("Next", action: {
+                print(self.question.formatTextWithImages())
                 self.question = Question()
             })
         }
