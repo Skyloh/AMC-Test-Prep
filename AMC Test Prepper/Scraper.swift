@@ -11,6 +11,15 @@ import SwiftSoup
 
 struct Scraper{
     
+    /*
+    enum ScraperError : Error{
+        case invalidSite
+        case boundError
+        case missingString
+    }
+    */
+     
+    
     //a class function that pulls the raw HTML text from the website and returns it
     //PRECONDITION: String input is a URL
     static func pullRaw(site: String) -> String{
@@ -50,11 +59,15 @@ struct Scraper{
     //a class function that returns the text related to the problem
     static func scrapeProblemText(site: String) -> String{
         
-        var raw_new = cleanText(site: site)
+        let raw_new = cleanText(site: site)
         
-        if (raw_new.contains("Contents ")){
+        if (raw_new.contains("Contents ") && (raw_new.contains("See Also") || raw_new.contains("Video Solution"))){
             
-            raw_new = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: "See Also", text: String(raw_new), inclusive: true))).joined()
+            let end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
+            
+            let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: end, text: String(raw_new), inclusive: true))).joined()
+            
+            return String(substringByStringBounds(start: "Problem ", end: "Solution", text: cut, inclusive: false))
             
         }
         
@@ -65,15 +78,19 @@ struct Scraper{
     //a class function that returns the text related to the solution
     static func scrapeSolutionText(site: String) -> String{
         
-        var raw_new = cleanText(site: site)
+        let raw_new = cleanText(site: site)
         
-        if (raw_new.contains("Contents ")){
+        if (raw_new.contains("Contents ") && (raw_new.contains("See Also") || raw_new.contains("Video Solution"))){
             
-            raw_new = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: "See Also", text: String(raw_new), inclusive: true))).joined()
+            let cutting_end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
+            
+            let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: cutting_end, text: String(raw_new), inclusive: true))).joined()
+            
+             return String(substringByStringBounds(start: "Solution ", end: cutting_end, text: cut, inclusive: false))
             
         }
         
-        return String(substringByStringBounds(start: "Solution ", end: "See Also", text: raw_new, inclusive: false))
+        return String(substringByStringBounds(start: "Solution ", end: (raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"), text: raw_new, inclusive: false))
     }
     
     //gets the image urls from the html
