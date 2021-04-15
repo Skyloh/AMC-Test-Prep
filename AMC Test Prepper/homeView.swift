@@ -11,27 +11,30 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 //This is what the user sees once they log-in
-//change 11/14
 
 struct homeView: View {
     
+    //This is a useless count variable to have the button work (delete later)
     @State private var count = 0
     @State var showing = false
     
     var body: some View {
         
         ZStack{
+            //Background color
             Rectangle().fill(Color("color1"))
             
             VStack{
                 
                 Spacer()
                 
+                //Logo is to be added
                 Text("AMC Test Prep").foregroundColor(Color("color4"))
                 Image("temp").resizable().aspectRatio(contentMode: .fit)
                 
                 Spacer()
                 
+                //This is the button that will take the user to the flashcards
                 Button("Open Question View", action: {
                     
                     //self.showing.toggle()
