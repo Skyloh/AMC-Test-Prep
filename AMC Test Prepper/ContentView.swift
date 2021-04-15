@@ -15,7 +15,11 @@ struct ContentView: View {
         
         ZStack{
             
+<<<<<<< Updated upstream
             TestingView()
+=======
+            QuestionView()
+>>>>>>> Stashed changes
             
             /*
             //this is an Image object, so modifiers should work on it
