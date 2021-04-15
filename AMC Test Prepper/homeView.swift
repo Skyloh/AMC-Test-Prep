@@ -16,6 +16,7 @@ import FirebaseDatabase
 struct homeView: View {
     
     @State private var count = 0
+    @State var showing = false
     
     var body: some View {
         
@@ -26,17 +27,23 @@ struct homeView: View {
                 
                 Spacer()
                 
-                Text("AMC Test Prep *logo to be added").foregroundColor(Color("color4"))
+                Text("AMC Test Prep").foregroundColor(Color("color4"))
+                Image("temp").resizable().aspectRatio(contentMode: .fit)
                 
                 Spacer()
                 
-                Text("Flash Cards").foregroundColor(Color("color2")).onTapGesture {
-                    self.count += 1
-                }
+                Button("Open Question View", action: {
+                    
+                    //self.showing.toggle()
+                    
+                    print(Question.text(site: "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16"))
+                })
                 
                 Spacer()
                 
             }
+        }.sheet(isPresented: $showing) {
+            TestingView()
         }
     }
 }

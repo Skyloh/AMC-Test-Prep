@@ -11,26 +11,24 @@ import WebKit
 
 struct ContentView: View {
     
-    @State var question = Question(site: "https://artofproblemsolving.com/wiki/index.php/2018_AMC_8_Problems/Problem_4")
-    
     var body: some View {
         
-<<<<<<< HEAD
-        Group{
+        ZStack{
+            
             homeView()
-        }
-        //Text("yayyayya it worked, Bean battles - bean ba pow :")
-=======
-        HStack{
+            
+            /*
             //this is an Image object, so modifiers should work on it
             question.loadFromIndex(index: 3)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             //modifiers are not available from the sidebar, you have to look them up yourself :(
+             */
             
         }
->>>>>>> master
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

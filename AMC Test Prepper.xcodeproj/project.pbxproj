@@ -20,6 +20,7 @@
 		5D897AAB260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		5D897AAC260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
 		5D897AAD260A129A004300A8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D897AAA260A129A004300A8 /* GoogleService-Info.plist */; };
+		5D9F340826272B0200D160D3 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F340726272B0200D160D3 /* TestingView.swift */; };
 		A6D827A5F2D4C77AE51D7E39 /* Pods_AMC_Test_Prepper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A836D10712026098267B4C1 /* Pods_AMC_Test_Prepper.framework */; };
 		AF8E6F6B261C888000A9C936 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8E6F6A261C888000A9C936 /* homeView.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		5D4CE6A3261C894200616E76 /* Scraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scraper.swift; sourceTree = "<group>"; };
 		5D860DBA2620D1DC003181D3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		5D897AAA260A129A004300A8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5D9F340726272B0200D160D3 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		AF8E6F6A261C888000A9C936 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 				5D45718825FA53DD00BF2DCB /* Info.plist */,
 				5D45718225FA53DD00BF2DCB /* Preview Content */,
 				AF8E6F6A261C888000A9C936 /* homeView.swift */,
+				5D9F340726272B0200D160D3 /* TestingView.swift */,
 				5D4CE6A3261C894200616E76 /* Scraper.swift */,
 				5D860DBA2620D1DC003181D3 /* Question.swift */,
 			);
@@ -358,6 +361,7 @@
 				AF8E6F6B261C888000A9C936 /* homeView.swift in Sources */,
 				5D45717D25FA53DB00BF2DCB /* SceneDelegate.swift in Sources */,
 				5D45717F25FA53DB00BF2DCB /* ContentView.swift in Sources */,
+				5D9F340826272B0200D160D3 /* TestingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

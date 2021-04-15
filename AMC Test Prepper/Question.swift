@@ -11,17 +11,32 @@ import SwiftUI
 
 //when making a Question, CACHE IT
 //these methods are taxing to call
-struct Question{
+class Question{
     
     var problemText : String
     var solutionText : String
-    var imageURLs: [String]
+    var imageURLs : [String]
+    var tags : [String]
     
     init(site: String){
         
         problemText = Scraper.scrapeProblemText(site: site)
         solutionText = Scraper.scrapeSolutionText(site: site)
         imageURLs = Scraper.scrapeImageElementUrls(site: site)
+        tags = [""]
+        
+    }
+    
+    convenience init(){
+        
+        let random_string : String = "https://artofproblemsolving.com/wiki/index.php/20" + String(Int.random(in: 10..<18)) + "_AMC_8_Problems/Problem_" + String(Int.random(in: 1..<26))
+        
+        print(random_string)
+        
+        //https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_14
+        //https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16
+        
+        self.init(site: random_string)
         
     }
     
@@ -33,6 +48,20 @@ struct Question{
         }
         
         return Image("")
+    }
+    
+    func addTag(tag: String){
+        
+        tags.append(tag)
+        
+    }
+    
+    static func text(site: String) -> String{
+        
+        let raw = Scraper.pullRaw(site: site)
+        
+        return String(raw[Range(NSRange(location: 1300, length: 1000), in: raw)!])
+        
     }
     
     
