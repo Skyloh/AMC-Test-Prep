@@ -31,7 +31,7 @@ class Question{
         
         let random_string : String = "https://artofproblemsolving.com/wiki/index.php/20" + String(Int.random(in: 10..<18)) + "_AMC_8_Problems/Problem_" + String(Int.random(in: 1..<26))
         
-        print(random_string)
+        print("Now loading: " + random_string)
         
         //https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_14
         //https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16

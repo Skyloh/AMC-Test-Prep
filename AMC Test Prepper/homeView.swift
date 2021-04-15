@@ -39,7 +39,8 @@ struct homeView: View {
                     
                     //self.showing.toggle()
                     
-                    print(Question.text(site: "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16"))
+                    //print(Question.text(site: "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16"))
+                    Question(site: "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16")
                 })
                 
                 Spacer()

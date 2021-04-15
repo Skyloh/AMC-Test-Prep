@@ -15,7 +15,7 @@ struct TestingView: View {
     var body: some View {
         VStack{
             Text(question.problemText)
-            question.loadFromIndex(index: 2).resizable().aspectRatio(contentMode: .fit)
+            question.loadFromIndex(index: 0).resizable().aspectRatio(contentMode: .fit)
             Text(question.solutionText)
             
             Button("Next", action: {

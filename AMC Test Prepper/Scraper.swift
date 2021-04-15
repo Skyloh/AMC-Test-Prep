@@ -34,50 +34,46 @@ struct Scraper{
         
         return text[lower..<upper]
         
-        //I feel cool
+    }
+    
+    //a class function that given a URL, cleans the html down to relevant text
+    static func cleanText(site: String) -> String{
+        
+        let raw = pullRaw(site: site)
+        
+        let start_string = "Search " + site.components(separatedBy: "index.php/").last!.replacingOccurrences(of: "_", with: " ")
+        
+        return raw.components(separatedBy: start_string).last!
+        
     }
     
     //a class function that returns the text related to the problem
     static func scrapeProblemText(site: String) -> String{
         
-        //get the html text
-        let raw = self.pullRaw(site: site)
+        var raw_new = cleanText(site: site)
         
-        //cuts away the first 1300 characters because they are never relevant to the problem
-        let cleaved_text = raw[Range(NSRange(location: 1300, length: 1000), in: raw)!]
-        
-        //cuts away the "Contents" menu from the top
-        if (cleaved_text.contains("Contents ")){
+        if (raw_new.contains("Contents ")){
             
-            //basically cuts out the section of text with the "contents" tab
-            let cut_text = (cleaved_text.components(separatedBy: substringByStringBounds(start: "Contents ", end: "See Also", text: String(cleaved_text), inclusive: true))).joined()
-            
-            //return the desired substring between the two bounds from the newer cut text
-            return String(substringByStringBounds(start: "Problem ", end: "Solution", text: cut_text, inclusive: false))
+            raw_new = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: "See Also", text: String(raw_new), inclusive: true))).joined()
             
         }
         
-        //return the desired substring between the bounds
-        return String(substringByStringBounds(start: "Problem ", end: "Solution", text: String(cleaved_text), inclusive: false))
+        return String(substringByStringBounds(start: "Problem ", end: "Solution", text: raw_new, inclusive: false))
+        
     }
     
-    //same fundamental idea as scrapeProblemText but with different string bounds
+    //a class function that returns the text related to the solution
     static func scrapeSolutionText(site: String) -> String{
         
-        let raw = pullRaw(site: site)
+        var raw_new = cleanText(site: site)
         
-        let cleaved_text = raw[Range(NSRange(location: 1300, length: 1000), in: raw)!]
-        
-        if (cleaved_text.contains("Contents ")){
+        if (raw_new.contains("Contents ")){
             
-            let cut_text = (cleaved_text.components(separatedBy: substringByStringBounds(start: "Contents ", end: "See Also", text: String(cleaved_text), inclusive: true))).joined()
-            
-            return String(substringByStringBounds(start: "Solution ", end: "See Also", text: cut_text, inclusive: false))
+            raw_new = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: "See Also", text: String(raw_new), inclusive: true))).joined()
             
         }
         
-        return String(substringByStringBounds(start: "Solution ", end: "See Also", text: String(cleaved_text), inclusive: false))
-        
+        return String(substringByStringBounds(start: "Solution ", end: "See Also", text: raw_new, inclusive: false))
     }
     
     //gets the image urls from the html
