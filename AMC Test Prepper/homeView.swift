@@ -44,6 +44,8 @@ struct homeView: View {
                 
                 Spacer()
                 
+                //To Add: More buttons for other studying modes
+                
             }
         }.sheet(isPresented: $showing) {
             TestingView()
