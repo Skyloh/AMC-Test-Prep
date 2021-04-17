@@ -6,11 +6,21 @@
 //  Copyright © 2021 Nathan Gooneratne (student LM). All rights reserved.
 //
 
+
+//archived problematic problems
+//https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_14
+//https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16
+//https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_24
+//https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_4
+//https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_5
+
+
 import Foundation
 import SwiftUI
 
 //when making a Question, CACHE IT
 //these methods are taxing to call
+//or just use lazy views lol
 class Question{
     
     var problemText : String
@@ -20,9 +30,13 @@ class Question{
     
     init(site: String)  {
         
-        problemText = Scraper.scrapeProblemText(site: site)
-        solutionText = Scraper.scrapeSolutionText(site: site)
+        let list = Scraper.scrapeByComponents(site: site)
+        
+        problemText = list[0]
+        solutionText = list[1]
+        
         imageURLs = Scraper.scrapeImageElementUrls(site: site)
+        
         tags = [""]
         
     }
@@ -32,12 +46,6 @@ class Question{
         let random_string : String = "https://artofproblemsolving.com/wiki/index.php/20" + String(Int.random(in: 10..<18)) + "_AMC_8_Problems/Problem_" + String(Int.random(in: 1..<26))
         
         print("Now loading: " + random_string)
-        
-        //archived problematic problems
-        //https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_14
-        //https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16
-        //https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_24
-        //https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_4
         
         self.init(site: random_string)
         
@@ -61,7 +69,7 @@ class Question{
         
     }
     
-
+    //WIP
     func formatTextWithImages() {
         print(self.problemText)
     }

@@ -22,26 +22,30 @@ struct homeView: View {
         
         ZStack{
             //Background color
-            Rectangle().fill(Color("color1"))
+            Rectangle().fill(Color.blue)
             
             VStack{
                 
                 Spacer()
                 
                 //Logo is to be added
-                Text("AMC Test Prep").foregroundColor(Color("color4"))
+                Text("AMC Test Prep").foregroundColor(Color.black)
+                
                 Image("temp").resizable().aspectRatio(contentMode: .fit)
                 
                 Spacer()
                 
                 //This is the button that will take the user to the flashcards
-                Button("Open Question View", action: {
-                    
-                    //self.showing.toggle()
-                    
-                    //print(Question.text(site: "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16"))
-                    Question(site: "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_16")
-                })
+                Button(action: {
+                    self.showing.toggle()
+                }) {
+                    Text("Single Questions")
+                        .frame(width: 200)
+                        .padding(.vertical, 15)
+                        .background(Color("color3"))
+                        .cornerRadius(8)
+                        .foregroundColor(Color("color2"))
+                }
                 
                 Spacer()
                 
