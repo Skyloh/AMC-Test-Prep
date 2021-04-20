@@ -12,18 +12,41 @@ struct TestingView: View {
     
     @State var question = Question()
     
+    let colors = [Color.purple, Color.blue, Color.pink, Color.yellow, Color("color2")]
+    
     var body: some View {
-        VStack{
-            Text(question.problemText)
-            question.loadFromIndex(index: 0).resizable().aspectRatio(contentMode: .fit)
-            Text(question.solutionText)
+        
+        ZStack{
             
+            Rectangle().fill(colors[Int.random(in: 0..<colors.count)])
             
-            
-            Button("Next", action: {
-                print(self.question.formatTextWithImages())
-                self.question = Question()
-            })
+            VStack{
+                
+                Text(question.problemText)
+                
+                Spacer()
+                
+                question.loadFromIndex(index: 0).resizable().aspectRatio(contentMode: .fit)
+                
+                Spacer()
+                
+                
+                Text(question.solutionText)
+                
+                
+                Button(action: {
+                    print(self.question.formatTextWithImages())
+                    self.question = Question()
+                }) {
+                    Text("Next Question")
+                        .frame(width: 200)
+                        .padding(.vertical, 15)
+                        .background(Color("color3"))
+                        .cornerRadius(8)
+                        .foregroundColor(Color("color2"))
+                }
+                
+            }
         }
     }
 }

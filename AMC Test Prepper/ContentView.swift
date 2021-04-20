@@ -9,17 +9,17 @@
 import SwiftUI
 import WebKit
 
+
+//https://www.hackingwithswift.com/quick-start/swiftui/how-to-lazy-load-views-using-lazyvstack-and-lazyhstack
+
+
 struct ContentView: View {
     
     var body: some View {
         
         ZStack{
             
-<<<<<<< Updated upstream
-            TestingView()
-=======
-            QuestionView()
->>>>>>> Stashed changes
+            homeView()
             
             /*
             //this is an Image object, so modifiers should work on it

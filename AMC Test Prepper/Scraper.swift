@@ -12,16 +12,15 @@ import SwiftSoup
 struct Scraper{
     
     /*
-    enum ScraperError : Error{
-        case invalidSite
-        case boundError
-        case missingString
-    }
-    */
-     
     
-    //a class function that pulls the raw HTML text from the website and returns it
-    //PRECONDITION: String input is a URL
+     --static func pullRaw(site: String) -> String:
+    
+     Pulls the raw HTML text from the website and returns it. Mainly used for debugging since the two
+     methods that used it are cringe.
+    
+     PRECONDITION: site is a URL.
+    
+    */
     static func pullRaw(site: String) -> String{
         
         let content = try! String(contentsOf: URL(string: site)!)
@@ -32,9 +31,18 @@ struct Scraper{
         
     }
     
-    //a class func that given a start string and end string and inclusivity boolean, returns the substring
-    //between those two start and end strings.
-    //PRECONDITION: start index < end index and both strings are present in text
+    /*
+    
+     --substringByStringBounds(start: String, end: String, text: String, inclusive: Bool) -> Substring:
+    
+     a class func that given a start string and end string and inclusivity boolean, returns the substring
+     between those two start and end strings. The main reason why scrapeProblem and scrapeSolutionText are
+     deprecated. Risky to call, and only used by the scrapeImageElementUrls because the precondition is
+     always true.
+    
+     PRECONDITION: start index < end index and both strings are present in text.
+    
+    */
     static func substringByStringBounds(start: String, end: String, text: String, inclusive: Bool) -> Substring{
         
         let lower : String.Index = text.range(of: start)!.lowerBound
@@ -45,7 +53,15 @@ struct Scraper{
         
     }
     
-    //a class function that given a URL, cleans the html down to relevant text
+    /*
+    
+     --cleanText(site: String) -> String:
+    
+     mostly used for debugging, but returns text without the fluffbits at the start.
+    
+     PRECONDITION: site is a URL (if this is true, there won't be a nil force unwrap error ever).
+    
+    */
     static func cleanText(site: String) -> String{
         
         let raw = pullRaw(site: site)
@@ -55,6 +71,21 @@ struct Scraper{
         return raw.components(separatedBy: start_string).last!
         
     }
+    
+    
+    /*
+     --------DEPRECATED----------
+     
+     broke too easily due to how inconsistent the Art of Problem Solving website is with its formatting
+     Couldn't figure out how to deal with optionals in the Substring methods, and furthermore, how these errors
+     would be dealt with during runtime.
+     
+     Use .scrapeByComponents(site: String) instead, much cleaner and adaptable, if not taking a few
+     preconditions into account.
+     
+     Also it's kinda really ugly.
+     
+     --------DEPRECATED----------
     
     //a class function that returns the text related to the problem
     static func scrapeProblemText(site: String) -> String{
@@ -74,6 +105,7 @@ struct Scraper{
         return String(substringByStringBounds(start: "Problem ", end: "Solution", text: raw_new, inclusive: false))
         
     }
+     
     
     //a class function that returns the text related to the solution
     static func scrapeSolutionText(site: String) -> String{
@@ -91,6 +123,37 @@ struct Scraper{
         }
         
         return String(substringByStringBounds(start: "Solution ", end: (raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"), text: raw_new, inclusive: false))
+    }
+     */
+    
+    /*
+     
+     --scrapeByComponents(site: String) -> [String]:
+     
+     much cleaner, simpler, and generalized for of scraping.
+     
+     PRECONDITION: site is a URL, any unwanted strings are below 60 characters in length, the user
+     only intends to use the problem text, and the FIRST solution text.
+     
+    */
+    static func scrapeByComponents(site: String) -> [String] {
+        
+        let text = cleanText(site: site)
+        
+        var split : [String] = text.components(separatedBy: "Solution")
+        
+        split = split.filter { (entry) -> Bool in
+            entry.count > 60
+        }
+        
+        split = split.map{
+            $0.contains("See Also") ? $0.replacingOccurrences(of: "See Also", with: "") : $0
+        }
+        
+        split[1] = split[1].components(separatedBy: "AMC 8")[0]
+        
+        return split
+        
     }
     
     //gets the image urls from the html
