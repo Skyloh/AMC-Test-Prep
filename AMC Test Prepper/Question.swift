@@ -71,7 +71,7 @@ class Question{
     
     //WIP
     func formatTextWithImages() {
-        print(self.problemText)
+        print("text: " + self.solutionText)
     }
     
     
