@@ -140,17 +140,56 @@ struct Scraper{
         
         let text = cleanText(site: site)
         
+        //split[0] = problem text, split[1] = solution text
         var split : [String] = text.components(separatedBy: "Solution")
         
+        
+        //removing useless remainder strings
+            //strings shorter than 60 characters
+            //useless text at the end of the solution text
+            //"Video" in problem text
+            //"Video" in solution text
+            //"(question year)" in solution text
+            
+        //cuts off the end flufftext from the Solution Text
+        split[1] = split[1].components(separatedBy: "AMC 8")[0]
+        
+        //removes useless string stubs
         split = split.filter { (entry) -> Bool in
             entry.count > 60
         }
         
+        //remove all instances of "See also"
         split = split.map{
             $0.contains("See Also") ? $0.replacingOccurrences(of: "See Also", with: "") : $0
         }
         
-        split[1] = split[1].components(separatedBy: "AMC 8")[0]
+        //remove all instances of "Video"
+        split = split.map {
+            $0.contains("Video") ? $0.replacingOccurrences(of: "Video", with: "") : $0
+        }
+        
+        if split[0].contains("Problem") {
+            
+            split[0] = "!?" + split[0]
+            
+            let to_remove = substringByStringBounds(start: "!?", end: "Problem", text: split[0], inclusive: true)
+            
+            split[0] = split[0].replacingOccurrences(of: to_remove, with: "")
+            
+        }
+        
+        let year = substringByStringBounds(start: "2", end: "_AMC", text: site.replacingOccurrences(of: "https://artofproblemsolving.com/wiki/index.php", with: ""), inclusive: false)
+
+        //removes the year end from solution text
+        if split[1].contains(year) {
+            split[1] = split[1].replacingOccurrences(of: year, with: "")
+        }
+        
+        //removing the weird " (some number) " string at the start, doesn't always work the best
+        let prefix_range = split[1].index(split[1].startIndex, offsetBy: 2)..<split[1].endIndex
+        
+        split[1] = String(split[1][prefix_range])
         
         return split
         

@@ -22,7 +22,7 @@ struct TestingView: View {
             
             VStack{
                 
-                Text(question.problemText)
+                Text(question.problemText).padding()
                 
                 Spacer()
                 
@@ -30,8 +30,7 @@ struct TestingView: View {
                 
                 Spacer()
                 
-                
-                Text(question.solutionText)
+                Text(question.solutionText).padding()
                 
                 
                 Button(action: {
