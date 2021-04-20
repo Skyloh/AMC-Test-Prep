@@ -31,7 +31,7 @@ struct homeView: View {
                 //Logo is to be added
                 Text("AMC Test Prep").foregroundColor(Color.black)
                 
-                Image("temp").resizable().aspectRatio(contentMode: .fit)
+                Image("final_icon").resizable().aspectRatio(contentMode: .fit)
                 
                 Spacer()
                 

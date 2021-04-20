@@ -54,6 +54,19 @@ struct Scraper{
     }
     
     /*
+     
+     --getYear(site: String) -> String
+     
+     used to get the year of the AMC that the question was a part of. Used for the ID of a question.
+     
+     PRECONDITION: site is a URL
+     
+     */
+    static func getYear(site: String) -> String{
+        return String(substringByStringBounds(start: "2", end: "_AMC", text: site.replacingOccurrences(of: "https://artofproblemsolving.com/wiki/index.php", with: ""), inclusive: false))
+    }
+    
+    /*
     
      --cleanText(site: String) -> String:
     
@@ -72,6 +85,96 @@ struct Scraper{
         
     }
     
+    /*
+     
+     --scrapeByComponents(site: String) -> [String]:
+     
+     much cleaner, simpler, and generalized for of scraping.
+     
+     PRECONDITION: site is a URL, any unwanted strings are below 60 characters in length, the user
+     only intends to use the problem text, and the FIRST solution text.
+     
+    */
+    static func scrapeByComponents(site: String) -> [String] {
+        
+        let text = cleanText(site: site)
+        
+        //split[0] = problem text, split[1] = solution text
+        var split : [String] = text.components(separatedBy: "Solution")
+        
+        
+        //removing useless remainder strings
+            //strings shorter than 60 characters
+            //useless text at the end of the solution text
+            //"Video" in problem text
+            //"Video" in solution text
+            //"(question year)" in solution text
+            
+        //cuts off the end flufftext from the Solution Text
+        split[1] = split[1].components(separatedBy: "AMC 8")[0]
+        
+        //removes useless string stubs
+        split = split.filter { (entry) -> Bool in
+            entry.count > 60
+        }
+        
+        //remove all instances of "See also"
+        split = split.map{
+            $0.contains("See Also") ? $0.replacingOccurrences(of: "See Also", with: "") : $0
+        }
+        
+        //remove all instances of "Video"
+        split = split.map {
+            $0.contains("Video") ? $0.replacingOccurrences(of: "Video", with: "") : $0
+        }
+        
+        //removes the instance of "Problem" in the problem text in a rather roundabout way
+        if split[0].contains("Problem") {
+            
+            split[0] = "!?" + split[0]
+            
+            let to_remove = substringByStringBounds(start: "!?", end: "Problem", text: split[0], inclusive: true)
+            
+            split[0] = split[0].replacingOccurrences(of: to_remove, with: "")
+            
+        }
+        
+        let year = getYear(site: site)
+
+        //removes the year end from solution text
+        if split[1].contains(year) {
+            split[1] = split[1].replacingOccurrences(of: year, with: "")
+        }
+        
+        //removing the weird " (some number) " string at the start, doesn't always work the best
+        
+        if split[1][Range(NSRangeFromString("0-4"), in: split[1])!].contains("1") {
+            split[1] = split[1].components(separatedBy: "1")[1]
+        }
+        
+        return split
+        
+    }
+    
+    //gets the image urls from the html
+    //PRECONDITION: site is an url
+    static func scrapeImageElementUrls(site: String) -> [String]{
+        
+        //gets all the Nodes with .png endings
+        let content = try! String(contentsOf: URL(string: site)!)
+        
+        var elements = try! (SwiftSoup.parse(content).select("img[src$=.png]")).array()
+        
+        //removes the last two entries because they are logos and we dont need those
+        elements.removeLast()
+        elements.removeLast()
+        
+        //turns every string into a usuable https: link
+        return elements.map {
+            String("https:" + substringByStringBounds(start: "//", end: ".png", text: $0.description, inclusive: true))
+        }
+        
+    }
     
     /*
      --------DEPRECATED----------
@@ -126,93 +229,5 @@ struct Scraper{
     }
      */
     
-    /*
-     
-     --scrapeByComponents(site: String) -> [String]:
-     
-     much cleaner, simpler, and generalized for of scraping.
-     
-     PRECONDITION: site is a URL, any unwanted strings are below 60 characters in length, the user
-     only intends to use the problem text, and the FIRST solution text.
-     
-    */
-    static func scrapeByComponents(site: String) -> [String] {
-        
-        let text = cleanText(site: site)
-        
-        //split[0] = problem text, split[1] = solution text
-        var split : [String] = text.components(separatedBy: "Solution")
-        
-        
-        //removing useless remainder strings
-            //strings shorter than 60 characters
-            //useless text at the end of the solution text
-            //"Video" in problem text
-            //"Video" in solution text
-            //"(question year)" in solution text
-            
-        //cuts off the end flufftext from the Solution Text
-        split[1] = split[1].components(separatedBy: "AMC 8")[0]
-        
-        //removes useless string stubs
-        split = split.filter { (entry) -> Bool in
-            entry.count > 60
-        }
-        
-        //remove all instances of "See also"
-        split = split.map{
-            $0.contains("See Also") ? $0.replacingOccurrences(of: "See Also", with: "") : $0
-        }
-        
-        //remove all instances of "Video"
-        split = split.map {
-            $0.contains("Video") ? $0.replacingOccurrences(of: "Video", with: "") : $0
-        }
-        
-        if split[0].contains("Problem") {
-            
-            split[0] = "!?" + split[0]
-            
-            let to_remove = substringByStringBounds(start: "!?", end: "Problem", text: split[0], inclusive: true)
-            
-            split[0] = split[0].replacingOccurrences(of: to_remove, with: "")
-            
-        }
-        
-        let year = substringByStringBounds(start: "2", end: "_AMC", text: site.replacingOccurrences(of: "https://artofproblemsolving.com/wiki/index.php", with: ""), inclusive: false)
-
-        //removes the year end from solution text
-        if split[1].contains(year) {
-            split[1] = split[1].replacingOccurrences(of: year, with: "")
-        }
-        
-        //removing the weird " (some number) " string at the start, doesn't always work the best
-        let prefix_range = split[1].index(split[1].startIndex, offsetBy: 2)..<split[1].endIndex
-        
-        split[1] = String(split[1][prefix_range])
-        
-        return split
-        
-    }
-    
-    //gets the image urls from the html
-    //PRECONDITION: site is an url
-    static func scrapeImageElementUrls(site: String) -> [String]{
-        
-        //gets all the Nodes with .png endings
-        let content = try! String(contentsOf: URL(string: site)!)
-        
-        var elements = try! (SwiftSoup.parse(content).select("img[src$=.png]")).array()
-        
-        //removes the last two entries because they are logos and we dont need those
-        elements.removeLast()
-        elements.removeLast()
-        
-        //turns every string into a usuable https: link
-        return elements.map {
-            String("https:" + substringByStringBounds(start: "//", end: ".png", text: $0.description, inclusive: true))
-        }
-        
-    }
 }
 

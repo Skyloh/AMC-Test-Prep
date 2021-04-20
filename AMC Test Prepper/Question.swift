@@ -27,6 +27,7 @@ class Question{
     var solutionText : String
     var imageURLs : [String]
     var tags : [String]
+    let ID : Int
     
     init(site: String)  {
         
@@ -38,6 +39,12 @@ class Question{
         imageURLs = Scraper.scrapeImageElementUrls(site: site)
         
         tags = [""]
+        
+        let year = Scraper.getYear(site: site)
+        
+        let problem_num = site.replacingOccurrences(of: "https://artofproblemsolving.com/wiki/index.php/" + year + "_AMC_8_Problems/Problem_", with: "")
+        
+        ID = Int(Scraper.getYear(site: site) + problem_num) ?? -1
         
     }
     
