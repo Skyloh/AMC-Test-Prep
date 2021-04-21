@@ -43,6 +43,7 @@ struct Scraper{
      PRECONDITION: start index < end index and both strings are present in text.
     
     */
+    
     static func substringByStringBounds(start: String, end: String, text: String, inclusive: Bool) -> Substring{
         
         let lower : String.Index = text.range(of: start)!.lowerBound
