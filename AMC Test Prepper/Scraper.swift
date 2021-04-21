@@ -101,10 +101,9 @@ struct Scraper{
         
         //split[0] = problem text, split[1] = solution text
         var split : [String] = text.components(separatedBy: "Solution")
-        
-        
+
         //removing useless remainder strings
-            //strings shorter than 60 characters
+            //strings shorter than 45 characters
             //useless text at the end of the solution text
             //"Video" in problem text
             //"Video" in solution text
@@ -113,9 +112,10 @@ struct Scraper{
         //cuts off the end flufftext from the Solution Text
         split[1] = split[1].components(separatedBy: "AMC 8")[0]
         
+        
         //removes useless string stubs
         split = split.filter { (entry) -> Bool in
-            entry.count > 60
+            entry.count > 45
         }
         
         //remove all instances of "See also"

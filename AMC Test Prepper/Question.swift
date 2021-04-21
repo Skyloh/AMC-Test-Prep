@@ -36,6 +36,10 @@ class Question{
         problemText = list[0]
         solutionText = list[1]
         
+        if solutionText.contains("American Mathematics Competitions"){
+            solutionText = "Error in Parsing Solution"
+        }
+        
         imageURLs = Scraper.scrapeImageElementUrls(site: site)
         
         tags = [""]
