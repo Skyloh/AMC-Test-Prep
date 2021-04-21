@@ -28,9 +28,10 @@ struct homeView: View {
                 
                 Spacer()
                 
-                //Logo
-                Text("AMC Test Prep").foregroundColor(Color("color4"))
-                Image("temp").resizable().aspectRatio(contentMode: .fit)
+                //Logo is to be added
+                Text("AMC Test Prep").foregroundColor(Color.black)
+                
+                Image("final_icon").resizable().aspectRatio(contentMode: .fit)
                 
                 Spacer()
                 
