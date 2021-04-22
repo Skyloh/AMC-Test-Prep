@@ -9,7 +9,7 @@
 import SwiftUI
 import FirebaseAuth
 
-//delete this aaaaaaaa***
+//delete this aaaaaaaa***adssadf //
 
 struct SignUpView: View {
     @EnvironmentObject var userInfo: UserInfo
