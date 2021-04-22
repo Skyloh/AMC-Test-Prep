@@ -18,24 +18,23 @@ struct ContentView: View {
     @EnvironmentObject var userInfo : UserInfo
 
     var body: some View {
-        Group{
-            if userInfo.isUserAuthenticated == .undefined{
-                Text("Loading")
-            }
-            else if userInfo.isUserAuthenticated == .signedOut{
-                LoginView()
-            }
-            else{
-                loginHomeView()
-            }
-        }.onAppear{
-            self.userInfo.configureFirebaseStateDidChange()
-        }
+//        Group{
+//            if userInfo.isUserAuthenticated == .undefined{
+//                Text("Loading")
+//            }
+//            else if userInfo.isUserAuthenticated == .signedOut{
+//                LoginView()
+//            }
+//            else{
+//                loginHomeView()
+//            }
+//        }.onAppear{
+//            self.userInfo.configureFirebaseStateDidChange()
+//        }
         
-        /*
+        
         ZStack{
-            LoginView()
-           // homeView()
+            homeView()
             
             /*
             //this is an Image object, so modifiers should work on it
@@ -45,7 +44,7 @@ struct ContentView: View {
             //modifiers are not available from the sidebar, you have to look them up yourself :(
              */
          }
-        // */
+        
         
         
         
