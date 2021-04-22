@@ -11,10 +11,12 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 //This is what the user sees once they log-in
+//This is a useless count variable to have the button work (delete later)
+
+//delete this aaaaaaaa***
 
 struct homeView: View {
     
-    //This is a useless count variable to have the button work (delete later)
     @State private var count = 0
     @State var showing = false
     

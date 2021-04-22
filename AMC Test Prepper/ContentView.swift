@@ -11,15 +11,31 @@ import WebKit
 
 
 //https://www.hackingwithswift.com/quick-start/swiftui/how-to-lazy-load-views-using-lazyvstack-and-lazyhstack
+//delete this aaaaaaaa***
 
 
 struct ContentView: View {
-    
+    @EnvironmentObject var userInfo : UserInfo
+
     var body: some View {
+        Group{
+            if userInfo.isUserAuthenticated == .undefined{
+                Text("Loading")
+            }
+            else if userInfo.isUserAuthenticated == .signedOut{
+                LoginView()
+            }
+            else{
+                loginHomeView()
+            }
+        }.onAppear{
+            self.userInfo.configureFirebaseStateDidChange()
+        }
         
+        /*
         ZStack{
-            
-            homeView()
+            LoginView()
+           // homeView()
             
             /*
             //this is an Image object, so modifiers should work on it
@@ -28,8 +44,10 @@ struct ContentView: View {
                 .aspectRatio(contentMode: .fit)
             //modifiers are not available from the sidebar, you have to look them up yourself :(
              */
-            
-        }
+         }
+        // */
+        
+        
         
     }
     

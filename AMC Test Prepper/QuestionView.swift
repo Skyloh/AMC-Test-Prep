@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+//delete this aaaaaaaa***
 
 //This is the flashcard view (main question mode)
 struct QuestionView: View {
