@@ -78,7 +78,8 @@ class Question{
     
     //WIP
     func formatTextWithImages() {
-        print("text: " + self.solutionText)
+        //print("text: " + self.solutionText)
+        //print(self.imageURLs)
     }
     
     

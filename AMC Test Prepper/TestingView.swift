@@ -10,16 +10,29 @@ import SwiftUI
 
 struct TestingView: View {
     
-    @State var question = Question()
+    //@State var question = Question()
     
     let colors = [Color.purple, Color.blue, Color.pink, Color.yellow, Color("color2")]
     
     var body: some View {
         
-        ZStack{
+        //was a ZStack
+        VStack{
             
             Rectangle().fill(colors[Int.random(in: 0..<colors.count)])
             
+            Button(action: {
+                Scraper.meme(site: "https://artofproblemsolving.com/wiki/index.php/2018_AMC_8_Problems/Problem_1")
+            }) {
+                Text("Next Question")
+                    .frame(width: 200)
+                    .padding(.vertical, 15)
+                    .background(Color("color3"))
+                    .cornerRadius(8)
+                    .foregroundColor(Color("color2"))
+            }
+            
+            /*
             VStack{
                 
                 Text(question.problemText).padding()
@@ -46,6 +59,7 @@ struct TestingView: View {
                 }
                 
             }
+ */
         }
     }
 }

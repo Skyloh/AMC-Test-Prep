@@ -177,6 +177,26 @@ struct Scraper{
         
     }
     
+    
+    static func meme(site: String) {
+        //let content = try! String(contentsOf: URL(string: site)!)
+        
+        let html: String = "<p>We know from the triangle inequality that the last side, <img src='//latex.artofproblemsolving.com/f/3/7/f37bba504894945c07a32f5496d74299a37aa51c.png' class='latex' alt='$s$' width='8' height='8' />,</p>"
+        //"<p>An <a href='http://example.com/'><b>example</b></a> link.</p>"
+        
+        //try! String(contentsOf: URL(string: site)!)
+        let doc: Document = try! SwiftSoup.parse(html)
+        
+        let link : Element = try! doc.select("img").first()!
+        
+        let text: String = try! doc.body()!.text(); // "An example link"
+        let linkHref: String = try! link.attr("src"); // "http://example.com/"
+        let linkText: String = try! link.text(); // "example"
+        print(text)
+        print(linkHref)
+        print(linkText)
+    }
+    
     /*
      --------DEPRECATED----------
      
