@@ -21,17 +21,23 @@ struct homeView: View {
     var body: some View {
         
         ZStack{
+            
+            
             //Background color
-            Rectangle().fill(Color.blue)
+            Rectangle().fill(Color("atpBlack"))
             
             VStack{
                 
-                Spacer()
+                 Spacer()
                 
-                //Logo is to be added
-                Text("AMC Test Prep").foregroundColor(Color.black)
+                //Logo
+                Text("AMC Test Prep")
+                    //.background(Color("atpPurple"))
+                    .foregroundColor(Color("atpWhite")).font(.system(size:36, weight: .light, design: .serif))
+                
                 
                 Image("final_icon").resizable().aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 300)
                 
                 Spacer()
                 
@@ -40,11 +46,11 @@ struct homeView: View {
                     self.showing.toggle()
                 }) {
                     Text("Single Questions")
-                        .frame(width: 200)
+                        .frame(width: 300)
                         .padding(.vertical, 15)
-                        .background(Color("color3"))
+                        .background(Color("atpMagenta"))
                         .cornerRadius(8)
-                        .foregroundColor(Color("color2"))
+                        .foregroundColor(Color("atpSky"))
                 }
                 
                 Spacer()

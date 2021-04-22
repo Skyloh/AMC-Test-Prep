@@ -30,11 +30,13 @@ struct QuestionView: View {
          ====PROBLEM CASES THAT NEED FIGURING OUT====
          > https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_8
          
+            https://artofproblemsolving.com/wiki/index.php/2013_AMC_8_Problems/Problem_3
+         
          */
         
         ZStack{
             
-            Rectangle().fill(Color("color4"))
+            Rectangle().fill(Color("atpBlack"))
             
             VStack{
                 
@@ -42,8 +44,11 @@ struct QuestionView: View {
                     //we'll need a way to dynamically change font size so that
                     //the whole problem can fit on the screen
                 Text(question.problemText)
-                    .foregroundColor(Color("color1"))
-                    .padding()
+                    .frame(width: 300)
+                    .padding(.vertical, 40)
+                    //.background(Color("atpBlue"))
+                    .cornerRadius(8)
+                    .foregroundColor(Color("atpSky"))
                 
                 
                 question.loadFromIndex(index:0)
@@ -78,9 +83,10 @@ struct QuestionView: View {
                 //string in the editor, we leave it up to the computer at runtime with a ternary operator.
                 Text(self.showing ? self.question.solutionText : "The Solution is Hidden")
                     .frame(width: 300)
-                    .padding()
+                    .padding(.vertical, 20)
+                    //.background(Color("atpBlue"))
                     .cornerRadius(8)
-                    .foregroundColor(Color("color1"))
+                    .foregroundColor(Color("atpSky"))
                 
                 Button(action: {
                     //.toggle is a boolean-only method that just swaps the boolean value
@@ -90,24 +96,25 @@ struct QuestionView: View {
                     Text(self.showing ? "Hide Solution" : "Show Solution")
                         .frame(width: 300)
                         .padding(.vertical, 20)
-                        .background(Color("color3"))
+                        .background(Color("atpMagenta"))
                         .cornerRadius(8)
-                        .foregroundColor(Color("color2"))
+                        .foregroundColor(Color("atpSky"))
                 }
                 
                 Spacer()
                 
                 //Next Question
                 Button(action: {
+                    self.showing = false
                     print(self.question.solutionText)
-                    //self.question = Question()
+                    self.question = Question()
                 }) {
                     Text("Next Question")
-                        .frame(width: 200)
+                        .frame(width: 300)
                         .padding(.vertical, 20)
-                        .background(Color("color3"))
+                        .background(Color("atpMagenta"))
                         .cornerRadius(8)
-                        .foregroundColor(Color("color2"))
+                        .foregroundColor(Color("atpSky"))
                 }
                 
             }
