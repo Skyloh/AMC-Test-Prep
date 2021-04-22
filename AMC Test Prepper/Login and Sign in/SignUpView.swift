@@ -10,7 +10,7 @@ import SwiftUI
 import FirebaseAuth
 
 //delete this aaaaaaaa***adssadf //
-
+//
 struct SignUpView: View {
     @EnvironmentObject var userInfo: UserInfo
     @State var user: UserViewModel = UserViewModel()
