@@ -181,10 +181,35 @@ struct Scraper{
     static func meme(site: String) {
         //let content = try! String(contentsOf: URL(string: site)!)
         
-        let html: String = "<p>We know from the triangle inequality that the last side, <img src='//latex.artofproblemsolving.com/f/3/7/f37bba504894945c07a32f5496d74299a37aa51c.png' class='latex' alt='$s$' width='8' height='8' />,</p>"
+        var html: String = try! String(contentsOf: URL(string: site)!)
+        
+        let start = "<h2><span class=\"mw-headline\" id=\"Problem\">Problem</span></h2>"
+        
+        let end = "<h2><span class=\"mw-headline\" id=\"See_Also\">See Also</span></h2>"
+        
+        html = String(substringByStringBounds(start: start, end: end, text: html, inclusive: false)).replacingOccurrences(of: start, with: "")
+        
+        html = html.replacingOccurrences(of: "</p>", with: "")
+        html = html.replacingOccurrences(of: "<p>", with: "")
+        
+        
+        var count : Int = 0
+        
+        while html.contains("<img src=") {
+            
+            html = html.replacingOccurrences(of: substringByStringBounds(start: "<img src=", end: "/>", text: html, inclusive: true), with: "{{\(count)}}")
+            
+            count+=1
+            
+        }
+        
+        print(html)
+        
         //"<p>An <a href='http://example.com/'><b>example</b></a> link.</p>"
         
+        /*
         //try! String(contentsOf: URL(string: site)!)
+         //"<p>We know from the triangle inequality that the last side, <img src='//latex.artofproblemsolving.com/f/3/7/f37bba504894945c07a32f5496d74299a37aa51c.png' class='latex' alt='$s$' width='8' height='8' />, naenae cringe</p>"
         let doc: Document = try! SwiftSoup.parse(html)
         
         let link : Element = try! doc.select("img").first()!
@@ -195,6 +220,7 @@ struct Scraper{
         print(text)
         print(linkHref)
         print(linkText)
+ */
     }
     
     /*
