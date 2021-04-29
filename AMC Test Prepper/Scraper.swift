@@ -12,18 +12,25 @@ import SwiftSoup
 struct Scraper{
     
     /*
-    
+     
      --static func pullRaw(site: String) -> String:
-    
+     
      Pulls the raw HTML text from the website and returns it. Mainly used for debugging since the two
      methods that used it are cringe.
-    
+     
      PRECONDITION: site is a URL.
-    
-    */
+     
+     */
     static func pullRaw(site: String) -> String{
         
-        let content = try! String(contentsOf: URL(string: site)!)
+        var content : String
+        
+        do {
+            content = try! String(contentsOf: URL(string: site)!)
+        }
+        catch{
+            content = "https://artofproblemsolving.com/wiki/index.php/2021_AMC_12A_Problems/Problem_1"
+        }
         
         let doc = try! SwiftSoup.parse(content)
         
@@ -32,17 +39,17 @@ struct Scraper{
     }
     
     /*
-    
+     
      --substringByStringBounds(start: String, end: String, text: String, inclusive: Bool) -> Substring:
-    
+     
      a class func that given a start string and end string and inclusivity boolean, returns the substring
      between those two start and end strings. The main reason why scrapeProblem and scrapeSolutionText are
      deprecated. Risky to call, and only used by the scrapeImageElementUrls because the precondition is
      always true.
-    
+     
      PRECONDITION: start index < end index and both strings are present in text.
-    
-    */
+     
+     */
     static func substringByStringBounds(start: String, end: String, text: String, inclusive: Bool) -> Substring{
         
         let lower : String.Index = text.range(of: start)!.lowerBound
@@ -67,14 +74,14 @@ struct Scraper{
     }
     
     /*
-    
+     
      --cleanText(site: String) -> String:
-    
+     
      mostly used for debugging, but returns text without the fluffbits at the start.
-    
+     
      PRECONDITION: site is a URL (if this is true, there won't be a nil force unwrap error ever).
-    
-    */
+     
+     */
     static func cleanText(site: String) -> String{
         
         let raw = pullRaw(site: site)
@@ -94,21 +101,21 @@ struct Scraper{
      PRECONDITION: site is a URL, any unwanted strings are below 60 characters in length, the user
      only intends to use the problem text, and the FIRST solution text.
      
-    */
+     */
     static func scrapeByComponents(site: String) -> [String] {
         
         let text = cleanText(site: site)
         
         //split[0] = problem text, split[1] = solution text
         var split : [String] = text.components(separatedBy: "Solution")
-
+        
         //removing useless remainder strings
-            //strings shorter than 45 characters
-            //useless text at the end of the solution text
-            //"Video" in problem text
-            //"Video" in solution text
-            //"(question year)" in solution text
-            
+        //strings shorter than 45 characters
+        //useless text at the end of the solution text
+        //"Video" in problem text
+        //"Video" in solution text
+        //"(question year)" in solution text
+        
         //cuts off the end flufftext from the Solution Text
         split[1] = split[1].components(separatedBy: "AMC 8")[0]
         
@@ -140,7 +147,7 @@ struct Scraper{
         }
         
         let year = getYear(site: site)
-
+        
         //removes the year end from solution text
         if split[1].contains(year) {
             split[1] = split[1].replacingOccurrences(of: year, with: "")
@@ -189,44 +196,44 @@ struct Scraper{
      Also it's kinda really ugly.
      
      --------DEPRECATED----------
-    
-    //a class function that returns the text related to the problem
-    static func scrapeProblemText(site: String) -> String{
-        
-        let raw_new = cleanText(site: site)
-        
-        if (raw_new.contains("Contents ") && (raw_new.contains("See Also") || raw_new.contains("Video Solution"))){
-            
-            let end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
-            
-            let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: end, text: String(raw_new), inclusive: true))).joined()
-            
-            return String(substringByStringBounds(start: "Problem ", end: "Solution", text: cut, inclusive: false))
-            
-        }
-        
-        return String(substringByStringBounds(start: "Problem ", end: "Solution", text: raw_new, inclusive: false))
-        
-    }
      
-    
-    //a class function that returns the text related to the solution
-    static func scrapeSolutionText(site: String) -> String{
-        
-        let raw_new = cleanText(site: site)
-        
-        if (raw_new.contains("Contents ") && (raw_new.contains("See Also") || raw_new.contains("Video Solution"))){
-            
-            let cutting_end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
-            
-            let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: cutting_end, text: String(raw_new), inclusive: true))).joined()
-            
-             return String(substringByStringBounds(start: "Solution ", end: cutting_end, text: cut, inclusive: false))
-            
-        }
-        
-        return String(substringByStringBounds(start: "Solution ", end: (raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"), text: raw_new, inclusive: false))
-    }
+     //a class function that returns the text related to the problem
+     static func scrapeProblemText(site: String) -> String{
+     
+     let raw_new = cleanText(site: site)
+     
+     if (raw_new.contains("Contents ") && (raw_new.contains("See Also") || raw_new.contains("Video Solution"))){
+     
+     let end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
+     
+     let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: end, text: String(raw_new), inclusive: true))).joined()
+     
+     return String(substringByStringBounds(start: "Problem ", end: "Solution", text: cut, inclusive: false))
+     
+     }
+     
+     return String(substringByStringBounds(start: "Problem ", end: "Solution", text: raw_new, inclusive: false))
+     
+     }
+     
+     
+     //a class function that returns the text related to the solution
+     static func scrapeSolutionText(site: String) -> String{
+     
+     let raw_new = cleanText(site: site)
+     
+     if (raw_new.contains("Contents ") && (raw_new.contains("See Also") || raw_new.contains("Video Solution"))){
+     
+     let cutting_end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
+     
+     let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: cutting_end, text: String(raw_new), inclusive: true))).joined()
+     
+     return String(substringByStringBounds(start: "Solution ", end: cutting_end, text: cut, inclusive: false))
+     
+     }
+     
+     return String(substringByStringBounds(start: "Solution ", end: (raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"), text: raw_new, inclusive: false))
+     }
      */
     
 }

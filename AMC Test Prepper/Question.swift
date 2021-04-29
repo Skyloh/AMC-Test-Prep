@@ -49,7 +49,7 @@ class Question{
         let problem_num = site.replacingOccurrences(of: "https://artofproblemsolving.com/wiki/index.php/" + year + "_AMC_8_Problems/Problem_", with: "")
         
         ID = Int(Scraper.getYear(site: site) + problem_num) ?? -1
-        
+      
     }
     
     convenience init() {
@@ -72,20 +72,14 @@ class Question{
         return Image("")
     }
     
-    func addTag(tag: String){
-        
-        if !tags.contains(tag) {
-            tags.append(tag)
-        }
-        
-    }
+//addTags was here
     
     //WIP
     func formatTextWithImages() {
         print("text: " + self.solutionText)
     }
     
-    
+
 }
 
 struct Question_Previews: PreviewProvider {

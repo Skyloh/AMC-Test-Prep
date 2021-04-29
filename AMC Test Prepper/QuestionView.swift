@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-//delete this aaaaaaaa***
 
 //This is the flashcard view (main question mode)
 struct QuestionView: View {
@@ -113,6 +112,23 @@ struct QuestionView: View {
                     Text("Next Question")
                         .frame(width: 300)
                         .padding(.vertical, 20)
+                        .background(Color("atpMagenta"))
+                        .cornerRadius(8)
+                        .foregroundColor(Color("atpSky"))
+                }
+                
+                Spacer() //make spacer that doesnt take up so much room
+                
+                //Next Question
+                Button(action: {
+                   
+                    print("tag here")
+                    TagMaker().addTag(id: Question().ID)
+                    // do stuff with .showing, make a similar system, pass data to firebase to store it,
+                }) {
+                    Text("Tag This")
+                        .frame(width: 100)
+                        .padding(.vertical, 15)
                         .background(Color("atpMagenta"))
                         .cornerRadius(8)
                         .foregroundColor(Color("atpSky"))

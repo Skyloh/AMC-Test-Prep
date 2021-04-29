@@ -42,6 +42,12 @@
 		61E0731D262F2B8F001E22A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45717E25FA53DB00BF2DCB /* ContentView.swift */; };
 		61E073262630A7D2001E22A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45717A25FA53DB00BF2DCB /* AppDelegate.swift */; };
 		61E073272630A7F2001E22A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D45717C25FA53DB00BF2DCB /* SceneDelegate.swift */; };
+		61E073292638367F001E22A0 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E073282638367F001E22A0 /* TagView.swift */; };
+		61E0732A2638367F001E22A0 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E073282638367F001E22A0 /* TagView.swift */; };
+		61E0732C263837BE001E22A0 /* TagMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0732B263837BE001E22A0 /* TagMaker.swift */; };
+		61E0732D263837BE001E22A0 /* TagMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0732B263837BE001E22A0 /* TagMaker.swift */; };
+		61E07332263AFA60001E22A0 /* IDTagObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E07331263AFA60001E22A0 /* IDTagObject.swift */; };
+		61E07333263AFA60001E22A0 /* IDTagObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E07331263AFA60001E22A0 /* IDTagObject.swift */; };
 		A6D827A5F2D4C77AE51D7E39 /* Pods_AMC_Test_Prepper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A836D10712026098267B4C1 /* Pods_AMC_Test_Prepper.framework */; };
 		AF8E6F6B261C888000A9C936 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8E6F6A261C888000A9C936 /* homeView.swift */; };
 		AF8E6F6D26287B1800A9C936 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8E6F6C26287B1800A9C936 /* QuestionView.swift */; };
@@ -95,6 +101,9 @@
 		61E07308262F0014001E22A0 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		61E07309262F0015001E22A0 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		61E0730A262F0015001E22A0 /* loginHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginHomeView.swift; sourceTree = "<group>"; };
+		61E073282638367F001E22A0 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		61E0732B263837BE001E22A0 /* TagMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagMaker.swift; sourceTree = "<group>"; };
+		61E07331263AFA60001E22A0 /* IDTagObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTagObject.swift; sourceTree = "<group>"; };
 		AF8E6F6A261C888000A9C936 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		AF8E6F6C26287B1800A9C936 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +190,9 @@
 				5D9F340726272B0200D160D3 /* TestingView.swift */,
 				5D4CE6A3261C894200616E76 /* Scraper.swift */,
 				5D860DBA2620D1DC003181D3 /* Question.swift */,
+				61E073282638367F001E22A0 /* TagView.swift */,
+				61E0732B263837BE001E22A0 /* TagMaker.swift */,
+				61E07331263AFA60001E22A0 /* IDTagObject.swift */,
 			);
 			path = "AMC Test Prepper";
 			sourceTree = "<group>";
@@ -412,7 +424,9 @@
 				AF8E6F6B261C888000A9C936 /* homeView.swift in Sources */,
 				5D45717D25FA53DB00BF2DCB /* SceneDelegate.swift in Sources */,
 				61E0730B262F0015001E22A0 /* LoadImage.swift in Sources */,
+				61E0732C263837BE001E22A0 /* TagMaker.swift in Sources */,
 				5D45717F25FA53DB00BF2DCB /* ContentView.swift in Sources */,
+				61E07332263AFA60001E22A0 /* IDTagObject.swift in Sources */,
 				61E07311262F0015001E22A0 /* SignInWithEmailView.swift in Sources */,
 				61E0730D262F0015001E22A0 /* UserViewModel.swift in Sources */,
 				61E07313262F0015001E22A0 /* ImagePicker.swift in Sources */,
@@ -422,6 +436,7 @@
 				61E0731B262F0015001E22A0 /* loginHomeView.swift in Sources */,
 				61E07319262F0015001E22A0 /* UserInfo.swift in Sources */,
 				5D9F340826272B0200D160D3 /* TestingView.swift in Sources */,
+				61E073292638367F001E22A0 /* TagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,14 +449,17 @@
 				61E0731D262F2B8F001E22A0 /* ContentView.swift in Sources */,
 				61E07316262F0015001E22A0 /* LoginView.swift in Sources */,
 				61E0730E262F0015001E22A0 /* UserViewModel.swift in Sources */,
+				61E07333263AFA60001E22A0 /* IDTagObject.swift in Sources */,
 				61E0731C262F0015001E22A0 /* loginHomeView.swift in Sources */,
 				61E07310262F0015001E22A0 /* ForgotPasswordView.swift in Sources */,
 				61E07318262F0015001E22A0 /* SignUpView.swift in Sources */,
 				61E073272630A7F2001E22A0 /* SceneDelegate.swift in Sources */,
 				61E07314262F0015001E22A0 /* ImagePicker.swift in Sources */,
 				61E07312262F0015001E22A0 /* SignInWithEmailView.swift in Sources */,
+				61E0732A2638367F001E22A0 /* TagView.swift in Sources */,
 				61E0731A262F0015001E22A0 /* UserInfo.swift in Sources */,
 				61E0730C262F0015001E22A0 /* LoadImage.swift in Sources */,
+				61E0732D263837BE001E22A0 /* TagMaker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

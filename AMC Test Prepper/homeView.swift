@@ -13,7 +13,6 @@ import FirebaseDatabase
 //This is what the user sees once they log-in
 //This is a useless count variable to have the button work (delete later)
 
-//delete this aaaaaaaa***
 
 struct homeView: View {
     
@@ -56,6 +55,19 @@ struct homeView: View {
                 }
                 
                 Spacer()
+                
+//                Button(action: {
+//                    self.showing.toggle()
+//                }) {
+//                    Text("Add Tag")
+//                        .frame(width: 300)
+//                        .padding(.vertical, 20)
+//                        .background(Color("atpMagenta"))
+//                        .cornerRadius(8)
+//                        .foregroundColor(Color("atpSky"))
+//                }
+//
+//                Spacer()
                 
                 //To Add: More buttons for other studying modes
                 

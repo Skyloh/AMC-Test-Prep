@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//delete this aaaaaaaa***
 
 struct UserViewModel {
     var email: String = ""
