@@ -37,10 +37,9 @@ class Question{
         
         let list = Scraper.formatText(site: site)
         
-        
         problemText = list[0].components(separatedBy: "|").filter{
             $0.count > 0
-        }        
+        }
         solutionText = list[1].components(separatedBy: "|").filter{
             $0.count > 0
         }
