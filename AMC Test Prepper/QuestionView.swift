@@ -72,52 +72,37 @@ struct QuestionView: View {
                     //New way to present the question by using the ForEach loop
                     
                     Spacer()
+                   
                     
-                    ForEach(0 ..< self.question.split_format.count) { part in
-                        
-                        //Check if the text is just a number and only if it is not just another display it
-                        if self.question.split_format[part].rangeOfCharacter(from: CharacterSet.decimalDigits) == nil{
-                            
-                            Text(self.question.split_format[part])
-                                .frame(width: 300)
-                                .padding(.vertical, 20)
-                                .cornerRadius(8)
-                                .foregroundColor(Color("atpSky"))
-                                .font(.custom("GillSans", size: 20))
-                        }
-                            
-                        else{
-                            self.question.loadFromIndex(index: Int(self.question.split_format[part])!)
-                            
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 20)
-                                .background(Color("atpSky"))
-                                .cornerRadius(8)
-                        }
-                        
-                        
-                        
+//UNCOMMENT EACH BLOCK ONE AT A TIME TO CHECK FOR ERRORS
+                    
+                    ForEach(0 ..< self.question.problemText.count) { part in
+
+//                        //Check if the text is just a number and only if it is not just another display it
+//                        if self.question.problemText[part].rangeOfCharacter(from: CharacterSet.decimalDigits) == nil{
+//
+//                            Text(self.question.problemText[part])
+//                                .frame(width: 300)
+//                                .padding(.vertical, 20)
+//                                .cornerRadius(8)
+//                                .foregroundColor(Color("atpSky"))
+//                                .font(.custom("GillSans", size: 20))
+//                        }
+//
+//                        else{
+//                            print("test: " + self.question.problemText[part])
+//                            self.question.loadFromIndex(index: Int(self.question.problemText[part])!)
+//
+//                                .padding(.horizontal, 20)
+//                                .padding(.vertical, 20)
+//                                .background(Color("atpSky"))
+//                                .cornerRadius(8)
+//                        }
+
+
+
                     }
                     
-                    
-                    
-                    
-                    /*
-                     This chunk of code isn't a great idea because it has the precondition:
-                     question.imageUrl.count > 1
-                     
-                     This precondition is failed for questions that don't have more than 1
-                     image associated with them, for example:
-                     >https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_19
-                     
-                     a better way to go about this would be something similar to the Contacts
-                     project we did, like a ForEach loop or something.
-                     ---------------------------
-                     question.loadFromIndex(index:1)
-                     .resizable()
-                     .aspectRatio(contentMode: .fit)
-                     .frame(width: 200, height: 50)
-                     */
                     
                     //Spacer()
                     
@@ -125,59 +110,58 @@ struct QuestionView: View {
                     //Show Answer
                     //in this solution to the displaying text issue, rather than hardcoding the
                     //string in the editor, we leave it up to the computer at runtime with a ternary operator.
-                    Text(self.showing ? self.question.solutionText : "The Solution is Hidden")
-                        .frame(width: 300)
-                        .padding(.vertical, 20)
-                        //.background(Color("atpBlue"))
-                        //.cornerRadius(8)
-                        .foregroundColor(Color("atpSky"))
-                        .font(.custom("GillSans", size: 20))
+//                    Text(self.showing ? self.question.solutionText[0] : "The Solution is Hidden")
+//                        .frame(width: 300)
+//                        .padding(.vertical, 20)
+//                        //.background(Color("atpBlue"))
+//                        //.cornerRadius(8)
+//                        .foregroundColor(Color("atpSky"))
+//                        .font(.custom("GillSans", size: 20))
                     
                     
-                    Button(action: {
-                        //.toggle is a boolean-only method that just swaps the boolean value
-                        self.showing.toggle()
-                    }) {
-                        //same idea as the comment in Show Answer, but applied to the Button
-                        Text(self.showing ? "Hide Solution" : "Show Solution")
-                            .frame(width: 300)
-                            .padding(.vertical, 20)
-                            .background(Color("atpMagenta"))
-                            .cornerRadius(8)
-                            .foregroundColor(Color("atpSky"))
-                            .font(.custom("GillSans", size: 20))
-                        
-                    }
+//                    Button(action: {
+//                        //.toggle is a boolean-only method that just swaps the boolean value
+//                        self.showing.toggle()
+//                    }) {
+//                        //same idea as the comment in Show Answer, but applied to the Button
+//                        Text(self.showing ? "Hide Solution" : "Show Solution")
+//                            .frame(width: 300)
+//                            .padding(.vertical, 20)
+//                            .background(Color("atpMagenta"))
+//                            .cornerRadius(8)
+//                            .foregroundColor(Color("atpSky"))
+//                            .font(.custom("GillSans", size: 20))
+//
+//                    }
                     
-                    Spacer()
-                    
-                    //Next Question
-                    Button(action: {
-                        self.showing = false
-                        print(self.question.solutionText)
-                        self.question = Question()
-                    }) {
-                        Text("Next Question")
-                            .frame(width: 300)
-                            .padding(.vertical, 20)
-                            .background(Color("atpMagenta"))
-                            .cornerRadius(8)
-                            .foregroundColor(Color("atpSky"))
-                            .font(.custom("GillSans", size: 20))
-                        
-                    }
+//                    Spacer()
+//
+//                    //Next Question
+//                    Button(action: {
+//                        self.showing = false
+//                        print(self.question.solutionText)
+//                        self.question = Question()
+//                    }) {
+//                        Text("Next Question")
+//                            .frame(width: 300)
+//                            .padding(.vertical, 20)
+//                            .background(Color("atpMagenta"))
+//                            .cornerRadius(8)
+//                            .foregroundColor(Color("atpSky"))
+//                            .font(.custom("GillSans", size: 20))
+//
+//                    }
                     
                 }
             }
             
-            
         }
-        
     }
+    
+    
 }
-
-struct QuestionView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionView()
-    }
+    struct QuestionView_Previews: PreviewProvider {
+        static var previews: some View {
+            QuestionView()
+        }
 }

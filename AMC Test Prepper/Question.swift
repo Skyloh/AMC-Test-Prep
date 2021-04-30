@@ -23,14 +23,13 @@ import SwiftUI
 //or just use lazy views lol
 class Question{
     
-    var problemText : String
-    var solutionText : String
+    var problemText : [String]
+    var solutionText : [String]
     var imageURLs : [String]
     var tags : [String]
     var site : String
     let ID : Int
     
-    var split_format : [String]
     
     init(site: String)  {
         
@@ -39,8 +38,13 @@ class Question{
         let list = Scraper.formatText(site: site)
         
         
-        problemText = list[0]
-        solutionText = list[1]
+        problemText = list[0].components(separatedBy: "|").filter{
+            $0.count > 0
+        }        
+        solutionText = list[1].components(separatedBy: "|").filter{
+            $0.count > 0
+        }
+        
         
         imageURLs = Scraper.scrapeImageElementUrls(site: site)
         
