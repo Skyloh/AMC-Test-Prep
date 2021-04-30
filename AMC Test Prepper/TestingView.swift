@@ -34,8 +34,7 @@ struct TestingView: View {
                 
                 
                 Button(action: {
-                    print(self.question.formatTextWithImages())
-                    self.question = Question()
+                    
                 }) {
                     Text("Next Question")
                         .frame(width: 200)

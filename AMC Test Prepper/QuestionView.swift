@@ -24,7 +24,12 @@ struct QuestionView: View {
     
     //@State var ans = "The Solution is Hidden"
     
+    
+    //Temporary text variable for trying to make text segmentation work
+    @State var temp: String = "Lorem ipsum dolor sit amet |0| consectetur adipiscing elit |1| sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n |3| \n Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur |0| Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    
     var body: some View {
+        
         
         
         /*
@@ -43,22 +48,58 @@ struct QuestionView: View {
             ScrollView{
                 VStack{
                     
+                    
+                    /*
+                     Split string uses .components with parameter '{'
+                     use for each loop
+                     */
+                    
                     //Displaying question
                     //we'll need a way to dynamically change font size so that
                     //the whole problem can fit on the screen
-                    Text(question.problemText)
-                        .frame(width: 300)
-                        .padding(.vertical, 40)
-                        //.background(Color("atpBlue"))
-                        .cornerRadius(8)
-                        .foregroundColor(Color("atpSky"))
-                        .font(.custom("GillSans", size: 20))
+                    //Old version of diplaying the question
+                    //Problem: Cannnot warp with images
+                    /*
+                     Text(question.problemText)
+                     .frame(width: 300)
+                     .padding(.vertical, 40)
+                     //.background(Color("atpBlue"))
+                     .cornerRadius(8)
+                     .foregroundColor(Color("atpSky"))
+                     .font(.custom("GillSans", size: 20))
+                     */
                     
-                    question.loadFromIndex(index:0)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 40)
-                        .padding()
+                    //New way to present the question by using the ForEach loop
+                    
+                    Spacer()
+                    
+                    ForEach(0 ..< self.question.split_format.count) { part in
+                        
+                        //Check if the text is just a number and only if it is not just another display it
+                        if self.question.split_format[part].rangeOfCharacter(from: CharacterSet.decimalDigits) == nil{
+                            
+                            Text(self.question.split_format[part])
+                                .frame(width: 300)
+                                .padding(.vertical, 20)
+                                .cornerRadius(8)
+                                .foregroundColor(Color("atpSky"))
+                                .font(.custom("GillSans", size: 20))
+                        }
+                            
+                        else{
+                            self.question.loadFromIndex(index: Int(self.question.split_format[part])!)
+                            
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 20)
+                                .background(Color("atpSky"))
+                                .cornerRadius(8)
+                        }
+                        
+                        
+                        
+                    }
+                    
+                    
                     
                     
                     /*
@@ -88,7 +129,7 @@ struct QuestionView: View {
                         .frame(width: 300)
                         .padding(.vertical, 20)
                         //.background(Color("atpBlue"))
-                        .cornerRadius(8)
+                        //.cornerRadius(8)
                         .foregroundColor(Color("atpSky"))
                         .font(.custom("GillSans", size: 20))
                     
@@ -128,6 +169,7 @@ struct QuestionView: View {
                     
                 }
             }
+            
             
         }
         
