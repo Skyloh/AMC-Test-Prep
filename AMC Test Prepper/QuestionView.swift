@@ -72,36 +72,35 @@ struct QuestionView: View {
                     //New way to present the question by using the ForEach loop
                     
                     Spacer()
-                   
                     
-//UNCOMMENT EACH BLOCK ONE AT A TIME TO CHECK FOR ERRORS
+                    
+                    // Fix this, this is wrong and needs the ID, look at the Contacts project for an example
                     
                     ForEach(0 ..< self.question.problemText.count) { part in
-
-//                        //Check if the text is just a number and only if it is not just another display it
-//                        if self.question.problemText[part].rangeOfCharacter(from: CharacterSet.decimalDigits) == nil{
-//
-//                            Text(self.question.problemText[part])
-//                                .frame(width: 300)
-//                                .padding(.vertical, 20)
-//                                .cornerRadius(8)
-//                                .foregroundColor(Color("atpSky"))
-//                                .font(.custom("GillSans", size: 20))
-//                        }
-//
-//                        else{
-//                            print("test: " + self.question.problemText[part])
-//                            self.question.loadFromIndex(index: Int(self.question.problemText[part])!)
-//
-//                                .padding(.horizontal, 20)
-//                                .padding(.vertical, 20)
-//                                .background(Color("atpSky"))
-//                                .cornerRadius(8)
-//                        }
-
-
-
+                        
+                        //Check if the text is just a number and only if it is not just another display it
+                        if self.question.problemText[part].rangeOfCharacter(from: CharacterSet.decimalDigits) == nil{
+                            
+                            Text(self.question.problemText[part])
+                                .frame(width: 300)
+                                .padding(.vertical, 20)
+                                .cornerRadius(8)
+                                .foregroundColor(Color("atpSky"))
+                                .font(.custom("GillSans", size: 20))
+                        }
+                            
+                        else{
+                            self.question.loadFromIndex(index: Int(self.question.problemText[part])!)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 20)
+                                .background(Color("atpSky"))
+                                .cornerRadius(8)
+                        }
                     }
+                    
+                    
+                    
+                    
                     
                     
                     //Spacer()
@@ -110,58 +109,58 @@ struct QuestionView: View {
                     //Show Answer
                     //in this solution to the displaying text issue, rather than hardcoding the
                     //string in the editor, we leave it up to the computer at runtime with a ternary operator.
-//                    Text(self.showing ? self.question.solutionText[0] : "The Solution is Hidden")
-//                        .frame(width: 300)
-//                        .padding(.vertical, 20)
-//                        //.background(Color("atpBlue"))
-//                        //.cornerRadius(8)
-//                        .foregroundColor(Color("atpSky"))
-//                        .font(.custom("GillSans", size: 20))
+                    Text(self.showing ? self.question.solutionText[0] : "The Solution is Hidden")
+                        .frame(width: 300)
+                        .padding(.vertical, 20)
+                        //.background(Color("atpBlue"))
+                        //.cornerRadius(8)
+                        .foregroundColor(Color("atpSky"))
+                        .font(.custom("GillSans", size: 20))
                     
                     
-//                    Button(action: {
-//                        //.toggle is a boolean-only method that just swaps the boolean value
-//                        self.showing.toggle()
-//                    }) {
-//                        //same idea as the comment in Show Answer, but applied to the Button
-//                        Text(self.showing ? "Hide Solution" : "Show Solution")
-//                            .frame(width: 300)
-//                            .padding(.vertical, 20)
-//                            .background(Color("atpMagenta"))
-//                            .cornerRadius(8)
-//                            .foregroundColor(Color("atpSky"))
-//                            .font(.custom("GillSans", size: 20))
-//
-//                    }
+                    Button(action: {
+                        //.toggle is a boolean-only method that just swaps the boolean value
+                        self.showing.toggle()
+                    }) {
+                        //same idea as the comment in Show Answer, but applied to the Button
+                        Text(self.showing ? "Hide Solution" : "Show Solution")
+                            .frame(width: 300)
+                            .padding(.vertical, 20)
+                            .background(Color("atpMagenta"))
+                            .cornerRadius(8)
+                            .foregroundColor(Color("atpSky"))
+                            .font(.custom("GillSans", size: 20))
+                        
+                    }
                     
-//                    Spacer()
-//
-//                    //Next Question
-//                    Button(action: {
-//                        self.showing = false
-//                        print(self.question.solutionText)
-//                        self.question = Question()
-//                    }) {
-//                        Text("Next Question")
-//                            .frame(width: 300)
-//                            .padding(.vertical, 20)
-//                            .background(Color("atpMagenta"))
-//                            .cornerRadius(8)
-//                            .foregroundColor(Color("atpSky"))
-//                            .font(.custom("GillSans", size: 20))
-//
-//                    }
+                    Spacer()
+                    
+                    //Next Question
+                    Button(action: {
+                        self.showing = false
+                        print(self.question.solutionText)
+                        self.question = Question()
+                    }) {
+                        Text("Next Question")
+                            .frame(width: 300)
+                            .padding(.vertical, 20)
+                            .background(Color("atpMagenta"))
+                            .cornerRadius(8)
+                            .foregroundColor(Color("atpSky"))
+                            .font(.custom("GillSans", size: 20))
+                        
+                    }
                     
                 }
             }
-            
         }
     }
-    
-    
 }
-    struct QuestionView_Previews: PreviewProvider {
-        static var previews: some View {
-            QuestionView()
-        }
+
+
+
+struct QuestionView_Previews: PreviewProvider {
+    static var previews: some View {
+        QuestionView()
+    }
 }
