@@ -60,7 +60,7 @@ struct homeView: View {
                 
                 Spacer()
                 
-                //To Add: More buttons for other studying modes
+                //more mode buttons go here
                 
             }
         }.sheet(isPresented: $showing) {

@@ -189,35 +189,57 @@ struct Scraper{
         
     }
     
+    /*
+     
+     --static func formatText(site: String) -> [String]:
+     
+     i hate this i shouldnt have to do this but i have to do it this way and it sucks
+     and i hate it but this function just formats the text with imageurls
+     
+     Precondition: site is a string and you have dignity to spare
+     
+     */
     
     static func formatText(site: String) -> [String]{
         
         var html: String = try! String(contentsOf: URL(string: site)!)
         
+        // we need the start and end indicies for substringByStringBounds
         let start = "<h2><span class=\"mw-headline\" id=\"problem\">problem</span></h2>"
         
         let end = "<h2><span class=\"mw-headline\" id=\"see_also\">see also</span></h2>"
         
+        // removes any possibility of the start and end indicies not existing
         let text = html.lowercased()
         
+        // cuts the string into a relevant range and removes the bounds
         html = String(substringByStringBounds(start: start, end: end, text: text, inclusive: false)).replacingOccurrences(of: start, with: "")
         
+        // general cleanup of removing html syntax
         html = html.replacingOccurrences(of: "</p>", with: "")
         html = html.replacingOccurrences(of: "<p>", with: "")
         html = html.replacingOccurrences(of: "<br />", with: "")
         html = html.replacingOccurrences(of: "<h2><span class=\"mw-headline\" id=\"solutions\">solutions</span></h2>", with: "")
         
+        // here we gooooo
         var count : Int = 0
         
+        // replaces every instance of <img src= blablbahblabhlahblabh /> with an
+        // identifier that makes it easier to print the image in the correct position
+        // also may or may not have maxed out the CPU in prior versions
         while html.contains("<img src=") {
             
+            // get the image URL to be replaced
             let string = substringByStringBounds(start: "<img src=", end: "/>", text: html, inclusive: true)
             
+            // replace it
             html = html.replacingOccurrences(of: string, with: "|\(count)|")
             
             
             count+=1
             
+            // to prevent cases where the CPU usage would get to 95% due to there
+            // being 50+ images
             if count > 30{
                 return [String]()
             }
@@ -226,7 +248,10 @@ struct Scraper{
         
         var array : [String] = [String]()
         
-        
+        // *retches*
+        // this sucks and I hate that I have to do this
+        // so no comments for you, this isn't even hard to figure out
+        // what it does and why i hate it so much
         html = html.components(separatedBy: "<h2><span class=\"mw-headline\" id=\"video_solution")[0]
         
         
@@ -267,6 +292,25 @@ struct Scraper{
         }
         
         return [array[0], array[1]]
+        
+        /*
+         
+         after finishing webscraping, I can safely say with 100% certainty
+         
+            AOPS has a horrible website and I never want to scrape without an API again.
+         
+         there are inconsistencies EVERYWHERE
+            
+            "Problem"? nope the html starts with "See More", and it's a table made in Javascript.
+            "Solutions"? nope the html starts with "Solution" and it's not even capitalized.
+            "Solution 1"? nope the html starts with "Video Solution (see more like this at *youtube
+            link*)". Also btw the end indice isn't "See Also", it's actually a youtube video link and did
+            I mention that if you mess any of this up at all the entire project breaks and there is
+            no way to test for every possibility that I only mentioned 4 of in this rant?
+         
+            :(
+         
+        */
         
     }
     

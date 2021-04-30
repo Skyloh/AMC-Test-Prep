@@ -36,13 +36,7 @@ struct ContentView: View {
         ZStack{
             homeView()
             
-            /*
-            //this is an Image object, so modifiers should work on it
-            question.loadFromIndex(index: 3)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            //modifiers are not available from the sidebar, you have to look them up yourself :(
-             */
+            
          }
         
         

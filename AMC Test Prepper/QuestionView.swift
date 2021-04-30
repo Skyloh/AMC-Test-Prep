@@ -20,16 +20,6 @@ struct QuestionView: View {
     var body: some View {
         
         
-        
-        /*
-         ====PROBLEM CASES THAT NEED FIGURING OUT====
-         > https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_8
-         
-         https://artofproblemsolving.com/wiki/index.php/2013_AMC_8_Problems/Problem_3
-         
-         */
-        
-        
         ZStack{
             
             Rectangle().fill(Color("atpBlack"))
