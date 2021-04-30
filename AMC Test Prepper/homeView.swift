@@ -35,7 +35,8 @@ struct homeView: View {
                 //Logo
                 Text("AMC Test Prep")
                     //.background(Color("atpPurple"))
-                    .foregroundColor(Color("atpWhite")).font(.system(size:36, weight: .light, design: .serif))
+                    .foregroundColor(Color("atpWhite"))
+                    .font(.custom("GillSans", size: 36))
                 
                 
                 Image("final_icon").resizable().aspectRatio(contentMode: .fit)
@@ -53,6 +54,8 @@ struct homeView: View {
                         .background(Color("atpMagenta"))
                         .cornerRadius(8)
                         .foregroundColor(Color("atpSky"))
+                        .font(.custom("GillSans", size: 20))
+
                 }
                 
                 Spacer()
