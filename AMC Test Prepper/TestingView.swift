@@ -6,13 +6,13 @@
 //  Copyright © 2021 Nathan Gooneratne (student LM). All rights reserved.
 //
 
+
+//THIS VIEW IS NOT USED IN PROJECT, ONLY TO TEST THINGS
 import SwiftUI
 
 struct TestingView: View {
     
     @State var question = Question()
-    
-    let colors = [Color.purple, Color.blue, Color.pink, Color.yellow, Color("color2")]
     
     var body: some View {
         

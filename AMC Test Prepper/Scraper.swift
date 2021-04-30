@@ -12,15 +12,15 @@ import SwiftSoup
 struct Scraper{
     
     /*
-    
+     
      --static func pullRaw(site: String) -> String:
-    
+     
      Pulls the raw HTML text from the website and returns it. Mainly used for debugging since the two
      methods that used it are cringe.
-    
+     
      PRECONDITION: site is a URL.
-    
-    */
+     
+     */
     static func pullRaw(site: String) -> String{
         
         let content = try! String(contentsOf: URL(string: site)!)
@@ -32,22 +32,35 @@ struct Scraper{
     }
     
     /*
-    
+     
      --substringByStringBounds(start: String, end: String, text: String, inclusive: Bool) -> Substring:
-    
+     
      a class func that given a start string and end string and inclusivity boolean, returns the substring
      between those two start and end strings. The main reason why scrapeProblem and scrapeSolutionText are
      deprecated. Risky to call, and only used by the scrapeImageElementUrls because the precondition is
      always true.
-    
+     
      PRECONDITION: start index < end index and both strings are present in text.
+     
+     */
     
-    */
     static func substringByStringBounds(start: String, end: String, text: String, inclusive: Bool) -> Substring{
         
-        let lower : String.Index = text.range(of: start)!.lowerBound
+        var lower : String.Index = String.Index(utf16Offset: 0, in: " ")
+        var upper : String.Index = String.Index(utf16Offset: 0, in: " ")
         
-        let upper : String.Index = inclusive ? text.range(of: end)!.upperBound : text.range(of: end)!.lowerBound
+        
+        if let lower_test = text.range(of: start) {
+            lower = lower_test.lowerBound
+        }
+        
+        if let upper_test = text.range(of: end){
+            upper = inclusive ? upper_test.upperBound : upper_test.lowerBound
+        }
+        
+        if upper <= lower {
+            return "Error"
+        }
         
         return text[lower..<upper]
         
@@ -67,14 +80,14 @@ struct Scraper{
     }
     
     /*
-    
+     
      --cleanText(site: String) -> String:
-    
+     
      mostly used for debugging, but returns text without the fluffbits at the start.
-    
+     
      PRECONDITION: site is a URL (if this is true, there won't be a nil force unwrap error ever).
-    
-    */
+     
+     */
     static func cleanText(site: String) -> String{
         
         let raw = pullRaw(site: site)
@@ -94,7 +107,7 @@ struct Scraper{
      PRECONDITION: site is a URL, any unwanted strings are below 60 characters in length, the user
      only intends to use the problem text, and the FIRST solution text.
      
-    */
+     */
     static func scrapeByComponents(site: String) -> [String] {
         
         let text = cleanText(site: site)
@@ -103,19 +116,19 @@ struct Scraper{
         var split : [String] = text.components(separatedBy: "Solution")
 
         //removing useless remainder strings
-            //strings shorter than 45 characters
-            //useless text at the end of the solution text
-            //"Video" in problem text
-            //"Video" in solution text
-            //"(question year)" in solution text
-            
+        //strings shorter than 60 characters
+        //useless text at the end of the solution text
+        //"Video" in problem text
+        //"Video" in solution text
+        //"(question year)" in solution text
+        
         //cuts off the end flufftext from the Solution Text
         split[1] = split[1].components(separatedBy: "AMC 8")[0]
         
         
         //removes useless string stubs
         split = split.filter { (entry) -> Bool in
-            entry.count > 45
+            entry.count > 60
         }
         
         //remove all instances of "See also"
@@ -140,7 +153,7 @@ struct Scraper{
         }
         
         let year = getYear(site: site)
-
+        
         //removes the year end from solution text
         if split[1].contains(year) {
             split[1] = split[1].replacingOccurrences(of: year, with: "")
@@ -176,6 +189,87 @@ struct Scraper{
         
     }
     
+    
+    static func formatText(site: String) -> [String]{
+        
+        var html: String = try! String(contentsOf: URL(string: site)!)
+        
+        let start = "<h2><span class=\"mw-headline\" id=\"problem\">problem</span></h2>"
+        
+        let end = "<h2><span class=\"mw-headline\" id=\"see_also\">see also</span></h2>"
+        
+        let text = html.lowercased()
+        
+        html = String(substringByStringBounds(start: start, end: end, text: text, inclusive: false)).replacingOccurrences(of: start, with: "")
+        
+        html = html.replacingOccurrences(of: "</p>", with: "")
+        html = html.replacingOccurrences(of: "<p>", with: "")
+        html = html.replacingOccurrences(of: "<br />", with: "")
+        html = html.replacingOccurrences(of: "<h2><span class=\"mw-headline\" id=\"solutions\">solutions</span></h2>", with: "")
+        
+        var count : Int = 0
+        
+        while html.contains("<img src=") {
+            
+            let string = substringByStringBounds(start: "<img src=", end: "/>", text: html, inclusive: true)
+            
+            html = html.replacingOccurrences(of: string, with: "|\(count)|")
+            
+            
+            count+=1
+            
+            if count > 30{
+                return [String]()
+            }
+            
+        }
+        
+        var array : [String] = [String]()
+        
+        
+        html = html.components(separatedBy: "<h2><span class=\"mw-headline\" id=\"video_solution")[0]
+        
+        
+        if html.contains("<h2><span class=\"mw-headline\" id=\"solutions\">solutions</span></h2>") {
+            
+            array = html.components(separatedBy: "<span class=\"mw-headline\" id=\"solutions\">solutions</span></h2>")
+            
+        }
+            
+        else if html.contains("<h2><span class=\"mw-headline\" id=\"solution\">solution</span></h2>"){
+            
+            array = html.components(separatedBy: "<h2><span class=\"mw-headline\" id=\"solution\">solution</span></h2>")
+            
+        }
+        
+        else if html.contains("<h2><span class=\"mw-headline\" id=\"solution_1\">solution 1</span></h2>"){
+            
+            array = html.components(separatedBy: "<h2><span class=\"mw-headline\" id=\"solution_1\">solution 1</span></h2>")
+            array[1] = array[1].components(separatedBy: "<h2>")[0]
+            
+        }
+            
+        else if html.contains("<h3><span class=\"mw-headline\" id=\"solution_1\">solution 1</span></h3>"){
+            
+            array = html.components(separatedBy: "<h3><span class=\"mw-headline\" id=\"solution_1\">solution 1</span></h3>")
+            array[1] = array[1].components(separatedBy: "<h3>")[0]
+            
+        }
+        
+        else{
+            
+            array = ["",""]
+            
+        }
+        
+        array = array.map{
+            $0.replacingOccurrences(of: "\n", with: "")
+        }
+        
+        return [array[0], array[1]]
+        
+    }
+    
     /*
      --------DEPRECATED----------
      
@@ -189,44 +283,44 @@ struct Scraper{
      Also it's kinda really ugly.
      
      --------DEPRECATED----------
-    
-    //a class function that returns the text related to the problem
-    static func scrapeProblemText(site: String) -> String{
-        
-        let raw_new = cleanText(site: site)
-        
-        if (raw_new.contains("Contents ") && (raw_new.contains("See Also") || raw_new.contains("Video Solution"))){
-            
-            let end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
-            
-            let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: end, text: String(raw_new), inclusive: true))).joined()
-            
-            return String(substringByStringBounds(start: "Problem ", end: "Solution", text: cut, inclusive: false))
-            
-        }
-        
-        return String(substringByStringBounds(start: "Problem ", end: "Solution", text: raw_new, inclusive: false))
-        
-    }
      
-    
-    //a class function that returns the text related to the solution
-    static func scrapeSolutionText(site: String) -> String{
-        
+     //a class function that returns the text related to the problem
+     static func scrapeProblemText(site: String) -> String{
+     
         let raw_new = cleanText(site: site)
-        
+     
         if (raw_new.contains("Contents ") && (raw_new.contains("See Also") || raw_new.contains("Video Solution"))){
-            
-            let cutting_end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
-            
-            let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: cutting_end, text: String(raw_new), inclusive: true))).joined()
-            
-             return String(substringByStringBounds(start: "Solution ", end: cutting_end, text: cut, inclusive: false))
-            
+     
+            let end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
+     
+            let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: end, text: String(raw_new), inclusive: true))).joined()
+     
+            return String(substringByStringBounds(start: "Problem ", end: "Solution", text: cut, inclusive: false))
+     
         }
-        
+     
+        return String(substringByStringBounds(start: "Problem ", end: "Solution", text: raw_new, inclusive: false))
+     
+     }
+     
+     
+     //a class function that returns the text related to the solution
+     static func scrapeSolutionText(site: String) -> String{
+     
+        let raw_new = cleanText(site: site)
+     
+        if (raw_new.contains("Contents ") && (raw_new.contains("See Also") || raw_new.contains("Video Solution"))){
+     
+            let cutting_end = raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"
+     
+            let cut = (raw_new.components(separatedBy: substringByStringBounds(start: "Contents ", end: cutting_end, text: String(raw_new), inclusive: true))).joined()
+     
+            return String(substringByStringBounds(start: "Solution ", end: cutting_end, text: cut, inclusive: false))
+     
+        }
+     
         return String(substringByStringBounds(start: "Solution ", end: (raw_new.contains("Video Solution") ? "Video Solution"  : "See Also"), text: raw_new, inclusive: false))
-    }
+     }
      */
     
 }
