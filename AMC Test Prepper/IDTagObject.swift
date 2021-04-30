@@ -20,17 +20,12 @@ class IDTagObject{
         self._TagString = tagString
     }
     
-    func get_ID()-> Int{
+    func getID()-> Int{
         return _ID
     }
-    func get_TagString()-> String{
+    func getTagString()-> String{
         return _TagString
     }
-//    func set_ID( id: Int){
-//        _ID = id
-//    }
-//    func set_TagString( tagString: String){
-//        _TagString = tagString
-//    }
+
     
 }

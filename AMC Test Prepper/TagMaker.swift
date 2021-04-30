@@ -9,18 +9,22 @@
 import Foundation
 import SwiftUI
 class TagMaker {
-    
-    var tagArr: [IDTagObject] = []
-    var wwee: IDTagObject = IDTagObject(id:3,tagString: "E")
-    // just do question.ID to add stuff to array
+    // array of question id and the name of the tag
+    var IDTagArr: [IDTagObject] = [IDTagObject(id: 1, tagString: "")]
     //self.question = Question()
     
-    func addTag(id: Int){
+    func addIDTag(id: Int, tagString: String){
         //add conditional for if tag button is pressed
-        if !tagArr.contains(id) {
-            tagArr.append(id)
-        }
         
+        //goes thru array of questions, adds new one each time the tag button is clicked
+        //if theres matching quesiton id and tag name, it isnt appended
+        for i in IDTagArr {
+            if !(i.getID() == id && i.getTagString() == tagString){
+                IDTagArr.append(IDTagObject(id: id, tagString: tagString))
+                // check console for the id and tag for testing
+                print("\(i.getTagString()), \(i.getID())")
+            }
+        }
         
     }
 }

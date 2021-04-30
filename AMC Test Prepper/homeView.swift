@@ -56,18 +56,6 @@ struct homeView: View {
                 
                 Spacer()
                 
-//                Button(action: {
-//                    self.showing.toggle()
-//                }) {
-//                    Text("Add Tag")
-//                        .frame(width: 300)
-//                        .padding(.vertical, 20)
-//                        .background(Color("atpMagenta"))
-//                        .cornerRadius(8)
-//                        .foregroundColor(Color("atpSky"))
-//                }
-//
-//                Spacer()
                 
                 //To Add: More buttons for other studying modes
                 

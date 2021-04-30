@@ -123,7 +123,9 @@ struct QuestionView: View {
                 Button(action: {
                    
                     print("tag here")
-                    TagMaker().addTag(id: Question().ID)
+                    TagMaker().addIDTag(id: Question().ID, tagString: "eeee")
+                    // 
+                    
                     // do stuff with .showing, make a similar system, pass data to firebase to store it,
                 }) {
                     Text("Tag This")

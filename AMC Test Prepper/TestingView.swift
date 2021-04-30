@@ -32,18 +32,6 @@ struct TestingView: View {
                 
                 Text(question.solutionText).padding()
                 
-//                Button(action: {
-//                    print("tag here")
-//                }){
-//                    Text("Add Tag")
-//                        .frame(width:100)
-//                        .padding(.vertical, 15)
-//                        .background(Color("color3"))
-//                        .cornerRadius(8)
-//                        .foregroundColor(Color("color2"))
-//                }
-//
-//                Spacer()
                 
                 Button(action: {
                     print(self.question.formatTextWithImages())
