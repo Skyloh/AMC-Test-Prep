@@ -12,7 +12,7 @@ import SwiftUI
 
 struct TestingView: View {
     
-    //@State var question = Question()
+    @State var question = Question()
     
     var body: some View {
         
@@ -21,7 +21,7 @@ struct TestingView: View {
             
             Button(action: {
                 
-                Scraper.meme(site: "https://artofproblemsolving.com/wiki/index.php/2018_AMC_8_Problems/Problem_1")
+                self.question = Question()
                 
             }) {
                 Text("Next Question")

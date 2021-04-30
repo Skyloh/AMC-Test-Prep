@@ -27,11 +27,15 @@ class Question{
     var solutionText : String
     var imageURLs : [String]
     var tags : [String]
+    var site : String
     let ID : Int
+    
     
     init(site: String)  {
         
-        let list = Scraper.scrapeByComponents(site: site)
+        self.site = site
+        
+        let list = Scraper.formatText(site: site)
         
         problemText = list[0]
         solutionText = list[1]
@@ -74,12 +78,6 @@ class Question{
             tags.append(tag)
         }
         
-    }
-    
-    //WIP
-    func formatTextWithImages() {
-        //print("text: " + self.solutionText)
-        //print(self.imageURLs)
     }
     
     

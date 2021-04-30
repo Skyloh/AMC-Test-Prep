@@ -31,7 +31,6 @@ struct QuestionView: View {
                 
                 //Show Answer
                 Button(action: {
-                    print(self.question.solutionText)
                     Text(self.question.solutionText)
                 }) {
                     Text("Show solution")
@@ -46,7 +45,6 @@ struct QuestionView: View {
                 
                 //Next Question
                 Button(action: {
-                    print(self.question.formatTextWithImages())
                     self.question = Question()
                 }) {
                     Text("Next Question")

@@ -19,7 +19,7 @@ struct ContentView: View {
         
         ZStack{
             
-            TestingView()
+            homeView()
             
             /*
             //this is an Image object, so modifiers should work on it
