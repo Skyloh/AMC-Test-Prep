@@ -297,18 +297,7 @@ struct Scraper{
          
          after finishing webscraping, I can safely say with 100% certainty
          
-            AOPS has a horrible website and I never want to scrape without an API again.
-         
-         there are inconsistencies EVERYWHERE
-            
-            "Problem"? nope the html starts with "See More", and it's a table made in Javascript.
-            "Solutions"? nope the html starts with "Solution" and it's not even capitalized.
-            "Solution 1"? nope the html starts with "Video Solution (see more like this at *youtube
-            link*)". Also btw the end indice isn't "See Also", it's actually a youtube video link and did
-            I mention that if you mess any of this up at all the entire project breaks and there is
-            no way to test for every possibility that I only mentioned 4 of in this rant?
-         
-            :(
+            AOPS has a horribly-formatted website and I never want to scrape without an API again. :(
          
         */
         
