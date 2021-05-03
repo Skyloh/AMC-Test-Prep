@@ -61,7 +61,7 @@ struct homeView: View {
                 
             }
         }.sheet(isPresented: $showing) {
-            QuestionView()
+            QuestionView(tagStringInput: Binding.constant(""))
         }
     }
 }

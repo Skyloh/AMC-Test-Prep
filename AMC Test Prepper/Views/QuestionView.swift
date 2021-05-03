@@ -12,10 +12,12 @@ import SwiftUI
 struct QuestionView: View {
     
     @State var question = Question()
-    
     //this boolean variable stores whether or not we are showing the solution.
     @State var showing : Bool = false
-    
+    //this string var stores the TextField input, which is the tag
+    @Binding var tagStringInput: String
+    //this boolean variable stores whether or not the TextField for tag input is showing
+    @State var showingTagInput: Bool = false
     /*
      while caching strings may improve on program speed, it's not really important
      to us (yet). This means that we can use a more simple and compact solution.
@@ -30,7 +32,7 @@ struct QuestionView: View {
          ====PROBLEM CASES THAT NEED FIGURING OUT====
          > https://artofproblemsolving.com/wiki/index.php/2016_AMC_8_Problems/Problem_8
          
-            https://artofproblemsolving.com/wiki/index.php/2013_AMC_8_Problems/Problem_3
+         https://artofproblemsolving.com/wiki/index.php/2013_AMC_8_Problems/Problem_3
          
          */
         
@@ -41,8 +43,8 @@ struct QuestionView: View {
             VStack{
                 
                 //Displaying question
-                    //we'll need a way to dynamically change font size so that
-                    //the whole problem can fit on the screen
+                //we'll need a way to dynamically change font size so that
+                //the whole problem can fit on the screen
                 Text(question.problemText)
                     .frame(width: 300)
                     .padding(.vertical, 40)
@@ -60,11 +62,11 @@ struct QuestionView: View {
                 
                 /*
                  This chunk of code isn't a great idea because it has the precondition:
-                    question.imageUrl.count > 1
+                 question.imageUrl.count > 1
                  
                  This precondition is failed for questions that don't have more than 1
                  image associated with them, for example:
-                    >https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_19
+                 >https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_19
                  
                  a better way to go about this would be something similar to the Contacts
                  project we did, like a ForEach loop or something.
@@ -118,33 +120,34 @@ struct QuestionView: View {
                 }
                 
                 Spacer() //make spacer that doesnt take up so much room
-                
-                //Next Question
+               
+                //Tag button
                 Button(action: {
-                   
+                    self.showingTagInput = true
                     print("tag here")
-                    TagMaker().addIDTag(id: Question().ID, tagString: "eeee")
-                    // 
+                    //.overlay(Text("text here"), alignment: Alignment.leading)
                     
                     // do stuff with .showing, make a similar system, pass data to firebase to store it,
                 }) {
-                    Text("Tag This")
+                    Text("Tag:")
                         .frame(width: 100)
                         .padding(.vertical, 15)
                         .background(Color("atpMagenta"))
                         .cornerRadius(8)
                         .foregroundColor(Color("atpSky"))
                 }
-                
+                    
+
+                }.sheet(isPresented: $showingTagInput){
+                TagView( tagStringInput: "", showingTagInput: false)
+            //back here 
             }
-            
-        }
-        
+            }
     }
 }
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView()
+        QuestionView(tagStringInput: Binding.constant(String()))
     }
 }

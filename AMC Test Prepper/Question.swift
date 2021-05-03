@@ -49,7 +49,7 @@ class Question{
         let problem_num = site.replacingOccurrences(of: "https://artofproblemsolving.com/wiki/index.php/" + year + "_AMC_8_Problems/Problem_", with: "")
         
         ID = Int(Scraper.getYear(site: site) + problem_num) ?? -1
-      
+        
     }
     
     convenience init() {
@@ -59,12 +59,17 @@ class Question{
         print("Now loading: " + random_string)
         
         self.init(site: random_string)
-        
+        //VERY IMPORTANT DO NOT DELETE THIS LINE
+        //workaround for looping generation of new question urls whenever a call to questionView is made,
+        // cuz a couple things need the ID, and end up messing with initalizers while user is inside of TagView.
+        //if stupid errors persist, just go back and replace all the instances of the specialGetID with 12345
+        TempErrorWorkaround().setID(id: ID)
     }
     
     //returns an image from the specified index
     func loadFromIndex(index: Int) -> Image{
-        
+
+
         if let data = try? Data(contentsOf: URL(string: imageURLs[index])!){
             return Image(uiImage: UIImage(data: data)!)
         }
@@ -72,14 +77,16 @@ class Question{
         return Image("")
     }
     
-//addTags was here
+
     
     //WIP
     func formatTextWithImages() {
         print("text: " + self.solutionText)
     }
     
-
+    func getID()-> Int{
+        return self.ID
+    }
 }
 
 struct Question_Previews: PreviewProvider {

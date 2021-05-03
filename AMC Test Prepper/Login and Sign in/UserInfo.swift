@@ -34,3 +34,6 @@ class UserInfo: ObservableObject{
 //Make tab view after
 // use same stuff as the login thing that inputs username
 // make a call to the TagView class each time a new id is made
+
+//So I gotta make sure that the question stuff doesnt loop. Each time it gets called, it shows a new question. Why it loops, Im not sure.
+//comment out that one line when save is pressed, see if you can just print the tagStringInput var on console
