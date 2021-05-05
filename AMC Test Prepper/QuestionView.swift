@@ -12,7 +12,7 @@ import SwiftUI
 //This is the flashcard view (main question mode)
 struct QuestionView: View {
     
-    @State var question = Question()
+    @State var question = Question(site: "https://artofproblemsolving.com/wiki/index.php/2011_AMC_8_Problems/Problem_22")
     
     //this boolean variable stores whether or not we are showing the solution.
     @State var showing : Bool = false
@@ -34,43 +34,92 @@ struct QuestionView: View {
                     
                     ForEach(self.question.problemText, id: \.self) { string in
                         
-                        //cannot have if statements in a ForEach without a Group
-                        Group{
-                            
-                            //is the string capable of being an int?
-                            if Int(string) == nil{
+                        HStack{
+                            //cannot have if statements in a ForEach without a Group
+                            Group{
                                 
-                                Text(string)
-                                    .frame(width: 300)
-                                    .padding(.vertical, 20)
-                                    .cornerRadius(8)
-                                    .foregroundColor(Color("atpSky"))
-                                    .font(.custom("GillSans", size: 20))
-                            }
-                                
-                            else{
-                                self.question.loadFromIndex(index: Int(string)!)
-                                    .padding(.horizontal, 20)
-                                    .padding(.vertical, 20)
-                                    .background(Color("atpSky"))
-                                    .cornerRadius(8)
-                                
+                                //is the string capable of being an int?
+                                if Int(string) == nil{
+                                    
+                                    Text(string)
+                                        .frame(width: 300)
+                                        .padding(.vertical, 10)
+                                        .cornerRadius(8)
+                                        .foregroundColor(Color("atpSky"))
+                                        .font(.custom("GillSans", size: 20))
+                                }
+                                    
+                                else{
+                                    
+                                    
+                                    self.question.loadFromIndex(index: Int(string)!)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        //.frame(width: 300)
+                                        .padding(.horizontal, 20)
+                                        .padding(.vertical, 10)
+                                        .background(Color("atpSky"))
+                                        .cornerRadius(8)
+                                        .onAppear()
+                                    
+                                }
                             }
                         }
                         
                     }
                     
+                    Spacer()
+                    
+                    
                     //Show Answer
                     //in this solution to the displaying text issue, rather than hardcoding the
                     //string in the editor, we leave it up to the computer at runtime with a ternary operator.
-                    Text(self.showing ? self.question.solutionText[0] : "The Solution is Hidden")
-                        .frame(width: 300)
-                        .padding(.vertical, 20)
-                        //.background(Color("atpBlue"))
-                        //.cornerRadius(8)
-                        .foregroundColor(Color("atpSky"))
-                        .font(.custom("GillSans", size: 20))
                     
+                    //           Text(self.showing ? self.question.solutionText[0] : "The Solution is Hidden")
+                    
+                    if showing {
+                        ForEach(self.question.solutionText, id: \.self) { string in
+                            
+                            Group {
+                                
+                                if Int(string) == nil {
+                                    Text(string)
+                                        .frame(width: 300)
+                                        .padding(.vertical, 20)
+                                        //.background(Color("atpBlue"))
+                                        //.cornerRadius(8)
+                                        .foregroundColor(Color("atpSky"))
+                                        .font(.custom("GillSans", size: 20))
+                                }
+                                else{
+                                    
+                                    self.question.loadFromIndex(index: Int(string)!)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        //.frame(width: 300)
+                                        .padding(.horizontal, 20)
+                                        .padding(.vertical, 10)
+                                        .background(Color("atpSky"))
+                                        .cornerRadius(8)
+                                        .onAppear()
+                                    
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+                        
+                    else {
+                        Text("The solution is hidden")
+                            .frame(width: 300)
+                            .padding(.vertical, 20)
+                            //.background(Color("atpBlue"))
+                            //.cornerRadius(8)
+                            .foregroundColor(Color("atpSky"))
+                            .font(.custom("GillSans", size: 20))
+                    }
                     
                     Button(action: {
                         //.toggle is a boolean-only method that just swaps the boolean value
