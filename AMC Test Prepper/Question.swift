@@ -28,6 +28,8 @@ class Question{
     var imageURLs : [String]
     var tags : [String]
     let ID : Int
+    @State var tagMaker = TagMaker()
+
     
     init(site: String)  {
         
@@ -50,6 +52,7 @@ class Question{
         
         ID = Int(Scraper.getYear(site: site) + problem_num) ?? -1
         
+        tagMaker.IDArr.append(ID)
     }
     
     convenience init() {
@@ -59,11 +62,12 @@ class Question{
         print("Now loading: " + random_string)
         
         self.init(site: random_string)
-        //VERY IMPORTANT DO NOT DELETE THIS LINE
+        //nvm, can delete this section of comments now
+        //VERY IMPORTANT DO NOT DELETE THIS LINE- nvm
         //workaround for looping generation of new question urls whenever a call to questionView is made,
         // cuz a couple things need the ID, and end up messing with initalizers while user is inside of TagView.
         //if stupid errors persist, just go back and replace all the instances of the specialGetID with 12345
-        TempErrorWorkaround().setID(id: ID)
+        //TempErrorWorkaround().setID(id: ID)
     }
     
     //returns an image from the specified index

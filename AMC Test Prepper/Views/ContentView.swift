@@ -33,7 +33,10 @@ struct ContentView: View {
         
         
         ZStack{
-            homeView()
+            if userInfo.isUserAuthenticated == .signedOut{
+            LoginView()
+            }
+            else{homeView()}
             
             /*
             //this is an Image object, so modifiers should work on it

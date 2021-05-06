@@ -15,9 +15,10 @@ struct QuestionView: View {
     //this boolean variable stores whether or not we are showing the solution.
     @State var showing : Bool = false
     //this string var stores the TextField input, which is the tag
-    @Binding var tagStringInput: String
+    //@Binding var tagStringInput: String
     //this boolean variable stores whether or not the TextField for tag input is showing
     @State var showingTagInput: Bool = false
+    
     /*
      while caching strings may improve on program speed, it's not really important
      to us (yet). This means that we can use a more simple and compact solution.
@@ -139,7 +140,7 @@ struct QuestionView: View {
                     
 
                 }.sheet(isPresented: $showingTagInput){
-                TagView( tagStringInput: "", showingTagInput: false)
+                    TagView()//, tagStringInput: "", showingTagInput: false
             //back here 
             }
             }
@@ -148,6 +149,6 @@ struct QuestionView: View {
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView(tagStringInput: Binding.constant(String()))
+        QuestionView()
     }
 }

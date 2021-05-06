@@ -12,12 +12,12 @@ import UIKit
 
 //rename comment if I renamed TagMaker
 class IDTagObject{
-    var _ID: Int = TempErrorWorkaround().specialGetID()
-//Question().getID()
-    var _TagString: String = ""
+    var _ID: Int
+    var _TagString: String
     
-    init ( tagString: String) {
+    init ( tagString: String, ID: Int) {
         self._TagString = tagString
+        self._ID = ID
     }
     
     func getID()-> Int{

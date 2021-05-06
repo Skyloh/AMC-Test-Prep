@@ -48,8 +48,6 @@
 		61E0732D263837BE001E22A0 /* TagMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E0732B263837BE001E22A0 /* TagMaker.swift */; };
 		61E07332263AFA60001E22A0 /* IDTagObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E07331263AFA60001E22A0 /* IDTagObject.swift */; };
 		61E07333263AFA60001E22A0 /* IDTagObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E07331263AFA60001E22A0 /* IDTagObject.swift */; };
-		61E07338263C5227001E22A0 /* QuestionViewWithNoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E07337263C5227001E22A0 /* QuestionViewWithNoTag.swift */; };
-		61E07339263C5227001E22A0 /* QuestionViewWithNoTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E07337263C5227001E22A0 /* QuestionViewWithNoTag.swift */; };
 		61E0733B263C6F0F001E22A0 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8E6F6C26287B1800A9C936 /* QuestionView.swift */; };
 		61E0733C263C6F19001E22A0 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8E6F6A261C888000A9C936 /* homeView.swift */; };
 		61E0733D263C6F1D001E22A0 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F340726272B0200D160D3 /* TestingView.swift */; };
@@ -111,7 +109,6 @@
 		61E073282638367F001E22A0 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		61E0732B263837BE001E22A0 /* TagMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagMaker.swift; sourceTree = "<group>"; };
 		61E07331263AFA60001E22A0 /* IDTagObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTagObject.swift; sourceTree = "<group>"; };
-		61E07337263C5227001E22A0 /* QuestionViewWithNoTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewWithNoTag.swift; sourceTree = "<group>"; };
 		61E0733E263F9B84001E22A0 /* TempErrorWorkaround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempErrorWorkaround.swift; sourceTree = "<group>"; };
 		AF8E6F6A261C888000A9C936 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		AF8E6F6C26287B1800A9C936 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
@@ -249,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				AF8E6F6C26287B1800A9C936 /* QuestionView.swift */,
-				61E07337263C5227001E22A0 /* QuestionViewWithNoTag.swift */,
 				61E073282638367F001E22A0 /* TagView.swift */,
 				5D9F340726272B0200D160D3 /* TestingView.swift */,
 				AF8E6F6A261C888000A9C936 /* homeView.swift */,
@@ -451,7 +447,6 @@
 				61E0730D262F0015001E22A0 /* UserViewModel.swift in Sources */,
 				61E07313262F0015001E22A0 /* ImagePicker.swift in Sources */,
 				61E07317262F0015001E22A0 /* SignUpView.swift in Sources */,
-				61E07338263C5227001E22A0 /* QuestionViewWithNoTag.swift in Sources */,
 				61E07315262F0015001E22A0 /* LoginView.swift in Sources */,
 				61E0730F262F0015001E22A0 /* ForgotPasswordView.swift in Sources */,
 				61E0731B262F0015001E22A0 /* loginHomeView.swift in Sources */,
@@ -477,7 +472,6 @@
 				61E07310262F0015001E22A0 /* ForgotPasswordView.swift in Sources */,
 				61E07318262F0015001E22A0 /* SignUpView.swift in Sources */,
 				61E073272630A7F2001E22A0 /* SceneDelegate.swift in Sources */,
-				61E07339263C5227001E22A0 /* QuestionViewWithNoTag.swift in Sources */,
 				61E07314262F0015001E22A0 /* ImagePicker.swift in Sources */,
 				61E07312262F0015001E22A0 /* SignInWithEmailView.swift in Sources */,
 				61E0732A2638367F001E22A0 /* TagView.swift in Sources */,
