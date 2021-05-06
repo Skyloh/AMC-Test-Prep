@@ -32,7 +32,7 @@ class Question{
     
     
     init(site: String)  {
-        
+        print(site)
         self.site = site
         
         let list = Scraper.formatText(site: site)

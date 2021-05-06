@@ -36,7 +36,7 @@ struct QuestionView: View {
          "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_1",
          "https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_11",
          "https://artofproblemsolving.com/wiki/index.php/2017_AMC_8_Problems/Problem_23",
-         "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_24"]
+         "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_14"]
     
     var body: some View {
         

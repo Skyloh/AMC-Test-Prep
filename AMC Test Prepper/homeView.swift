@@ -76,7 +76,18 @@ struct homeView: View {
                 
                 Spacer()
                 
-                //more mode buttons go here
+                Text("Questions by AOPS")
+                    .foregroundColor(Color("atpBlue"))
+                    .font(.custom("GillSans", size: 20))
+                
+                Image("aops-logo")
+                    .resizable()
+                    .frame(width: 70, height: 70)
+                    .background(Color("atpWhite"))
+                    .border(Color("atpWhite"), width: 5)
+                    .cornerRadius(6)
+                
+                Spacer()
                 
                 
                 
