@@ -248,12 +248,11 @@ struct Scraper{
         
         var array : [String] = [String]()
         
-        // *retches*
-        // this sucks and I hate that I have to do this
-        // so no comments for you, this isn't even hard to figure out
-        // what it does and why i hate it so much
-        html = html.components(separatedBy: "<h2><span class=\"mw-headline\" id=\"video_solution")[0]
+        // cant use a switch statement for this
+        // nor can i get RegEx to work with this
+        // so i guess we're going with the CS 1 method :(
         
+        html = html.components(separatedBy: "<h2><span class=\"mw-headline\" id=\"video_solution")[0]
         
         if html.contains("<h2><span class=\"mw-headline\" id=\"solutions\">solutions</span></h2>") {
             
@@ -295,9 +294,7 @@ struct Scraper{
         
         /*
          
-         after finishing webscraping, I can safely say with 100% certainty
-         
-            AOPS has a horribly-formatted website and I never want to scrape without an API again. :(
+         after finishing webscraping, I now have a greater respect for well-formatted websites
          
         */
         

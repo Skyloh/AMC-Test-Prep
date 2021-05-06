@@ -10,12 +10,8 @@ import SwiftUI
 import WebKit
 
 
-//https://www.hackingwithswift.com/quick-start/swiftui/how-to-lazy-load-views-using-lazyvstack-and-lazyhstack
-//delete this aaaaaaaa***
-
-
 struct ContentView: View {
-    @EnvironmentObject var userInfo : UserInfo
+    //@EnvironmentObject var userInfo : UserInfo
     
     var body: some View {
         //        Group{

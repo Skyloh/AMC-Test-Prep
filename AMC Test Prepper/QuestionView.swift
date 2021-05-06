@@ -4,26 +4,39 @@
 //
 //  Created by Alexander Nikolov (student LM) on 4/15/21.
 //  Copyright © 2021 Nathan Gooneratne (student LM). All rights reserved.
-//
+// bouta sue alex rq
 
 import SwiftUI
-//delete this aaaaaaaa***
 
-//This is the flashcard view (main question mode)
 struct QuestionView: View {
+    
+    //hardcoded for presentation, normally would just be
+    
+    //  @State var question = Question()
     
     @State var question = Question(site: "https://artofproblemsolving.com/wiki/index.php/2013_AMC_8_Problems/Problem_13")
     
     //this boolean variable stores whether or not we are showing the solution.
     @State var showing : Bool = false
     
-    // hardcoded urls for presentation
+    /*
+     hardcoded urls for presentation
+     for some reason, it's dangerous to go beyond these values
+     the code just prints a random fatal error I don't know how to fix
+    
+     
+            Fatal error: Index out of range: file /Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-1103.2.25.13/swift/stdlib/public/core/ContiguousArrayBuffer.swift, line 444
+     
+            2021-05-06 08:54:25.625858-0400 AMC Test Prepper[52830:7911508] Fatal error: Index out of range: file /Library/Caches/com.apple.xbs/Sources/swiftlang/swiftlang-1103.2.25.13/swift/stdlib/public/core/ContiguousArrayBuffer.swift, line 444
+    
+    */
+    
     @State var questionURLs : [String] =
-    ["https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_23",
-    "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_1",
-    "https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_11",
-    "https://artofproblemsolving.com/wiki/index.php/2017_AMC_8_Problems/Problem_23",
-    "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_24"]
+        ["https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_23",
+         "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_1",
+         "https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_11",
+         "https://artofproblemsolving.com/wiki/index.php/2017_AMC_8_Problems/Problem_23",
+         "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_24"]
     
     var body: some View {
         
@@ -37,7 +50,22 @@ struct QuestionView: View {
                     
                     //New way to present the question by using the ForEach loop
                     
-                    Spacer()
+                    //Spacer()
+                    
+                    HStack{
+                        
+                        Text("Question ID:")
+                            .foregroundColor(Color("atpSky"))
+                            .font(.custom("GillSans", size: 20))
+                        
+                        Text(String(question.ID))
+                            .foregroundColor(Color.black)
+                            .font(.custom("GillSans", size: 30))
+                        
+                    }.frame(width: 300)
+                        .padding(.vertical, 10)
+                        .background(Color("atpBlue"))
+                        .cornerRadius(8)
                     
                     
                     ForEach(self.question.problemText, id: \.self) { string in
@@ -129,15 +157,25 @@ struct QuestionView: View {
                         self.showing.toggle()
                     }) {
                         //same idea as the comment in Show Answer, but applied to the Button
-                        Text(self.showing ? "Hide Solution" : "Show Solution")
-                            .frame(width: 300)
+                        
+                        HStack {
+                            
+                            Text(self.showing ? "Hide Solution" : "Show Solution")
+                            
+                            Image(systemName: self.showing ? "xmark.circle" : "magnifyingglass.circle")
+                                .resizable()
+                                .frame(width:40,height:40)
+                                .padding(.horizontal, 5)
+                            
+                        }.frame(width: 300)
                             .padding(.vertical, 20)
                             .background(Color("atpMagenta"))
-                            .cornerRadius(8)
                             .foregroundColor(Color("atpSky"))
                             .font(.custom("GillSans", size: 20))
                         
-                    }
+                    }.border(Color("atpPurple"), width: 3)
+                        .cornerRadius(3)
+                    
                     
                     Spacer()
                     
@@ -152,15 +190,26 @@ struct QuestionView: View {
                         self.question = Question(site: self.questionURLs.remove(at: self.questionURLs.count-1))
                         
                     }) {
-                        Text("Next Question")
-                            .frame(width: 300)
+                        
+                        HStack {
+                            
+                            Text("Next Question")
+                            
+                            Image(systemName: "chevron.right")
+                                .resizable()
+                                .frame(width:20,height:30)
+                                .padding(.horizontal)
+                            
+                        }.frame(width: 300)
                             .padding(.vertical, 20)
                             .background(Color("atpMagenta"))
-                            .cornerRadius(8)
                             .foregroundColor(Color("atpSky"))
                             .font(.custom("GillSans", size: 20))
                         
-                    }
+                    }.border(Color("atpPurple"), width: 3)
+                        .cornerRadius(3)
+                        .padding(.all, 5)
+                    
                     
                 }
             }

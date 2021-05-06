@@ -7,13 +7,13 @@
 //
 
 import SwiftUI
+
+/*
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
-//This is what the user sees once they log-in
-//This is a useless count variable to have the button work (delete later)
+ */
 
-//delete this aaaaaaaa***
 
 struct homeView: View {
     
@@ -31,7 +31,7 @@ struct homeView: View {
             
             Rectangle()
                 .fill(Color("atpBlack"))
-                .cornerRadius(75)
+                .cornerRadius(50)
                 .padding(.all, 10)
             
             VStack{
