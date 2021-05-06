@@ -61,7 +61,7 @@ class Question{
     
     convenience init() {
         
-        let random_string : String = "https://artofproblemsolving.com/wiki/index.php/20" + String(Int.random(in: 10..<18)) + "_AMC_8_Problems/Problem_" + String(Int.random(in: 1..<26))
+        let random_string : String = "https://artofproblemsolving.com/wiki/index.php/20\(Int.random(in: 10..<20))_AMC_8_Problems/Problem_\(Int.random(in: 1..<23))"
         
         print("Now loading: " + random_string)
         

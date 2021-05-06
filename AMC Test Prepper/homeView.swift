@@ -26,28 +26,44 @@ struct homeView: View {
             
             
             //Background color
-            Rectangle().fill(Color("atpBlack"))
+            Rectangle()
+                .fill(Color.black)
+            
+            Rectangle()
+                .fill(Color("atpBlack"))
+                .cornerRadius(75)
+                .padding(.all, 10)
             
             VStack{
                 
-                 Spacer()
+                Spacer()
                 
                 //Logo
-                Text("AMC Test Prep")
+                Text("AMC Test Prepper")
                     //.background(Color("atpPurple"))
                     .foregroundColor(Color("atpWhite"))
                     .font(.custom("GillSans", size: 36))
                 
                 
-                Image("final_icon").resizable().aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 300)
+                
+                ZStack{
+                    Rectangle()
+                        .fill(Color("atpPurple"))
+                        .frame(width: 320, height: 320, alignment: .center)
+                        .cornerRadius(10)
+                    
+                    
+                    Image("final_icon").resizable().aspectRatio(contentMode: .fit)
+                        .frame(width: 300, height: 300)
+                }
                 
                 Spacer()
                 
-                //This is the button that will take the user to the flashcards
+                //This is the button that will take the user to the single questions
                 Button(action: {
                     self.showing.toggle()
                 }) {
+                    
                     Text("Single Questions")
                         .frame(width: 300)
                         .padding(.vertical, 15)
@@ -55,12 +71,14 @@ struct homeView: View {
                         .cornerRadius(8)
                         .foregroundColor(Color("atpSky"))
                         .font(.custom("GillSans", size: 20))
-
+                    
                 }
                 
                 Spacer()
                 
                 //more mode buttons go here
+                
+                
                 
             }
         }.sheet(isPresented: $showing) {

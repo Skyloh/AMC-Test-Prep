@@ -12,10 +12,18 @@ import SwiftUI
 //This is the flashcard view (main question mode)
 struct QuestionView: View {
     
-    @State var question = Question(site: "https://artofproblemsolving.com/wiki/index.php/2011_AMC_8_Problems/Problem_22")
+    @State var question = Question(site: "https://artofproblemsolving.com/wiki/index.php/2013_AMC_8_Problems/Problem_13")
     
     //this boolean variable stores whether or not we are showing the solution.
     @State var showing : Bool = false
+    
+    // hardcoded urls for presentation
+    @State var questionURLs : [String] =
+    ["https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_23",
+    "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_1",
+    "https://artofproblemsolving.com/wiki/index.php/2015_AMC_8_Problems/Problem_11",
+    "https://artofproblemsolving.com/wiki/index.php/2017_AMC_8_Problems/Problem_23",
+    "https://artofproblemsolving.com/wiki/index.php/2012_AMC_8_Problems/Problem_24"]
     
     var body: some View {
         
@@ -60,7 +68,8 @@ struct QuestionView: View {
                                         .padding(.vertical, 10)
                                         .background(Color("atpSky"))
                                         .cornerRadius(8)
-                                        .onAppear()
+                                        .border(Color("atpBlue"), width: 7)
+                                        .cornerRadius(10)
                                     
                                 }
                             }
@@ -70,12 +79,6 @@ struct QuestionView: View {
                     
                     Spacer()
                     
-                    
-                    //Show Answer
-                    //in this solution to the displaying text issue, rather than hardcoding the
-                    //string in the editor, we leave it up to the computer at runtime with a ternary operator.
-                    
-                    //           Text(self.showing ? self.question.solutionText[0] : "The Solution is Hidden")
                     
                     if showing {
                         ForEach(self.question.solutionText, id: \.self) { string in
@@ -101,7 +104,7 @@ struct QuestionView: View {
                                         .padding(.vertical, 10)
                                         .background(Color("atpSky"))
                                         .cornerRadius(8)
-                                        .onAppear()
+                                        .border(Color("atpMagenta"), width: 5)
                                     
                                     
                                 }
@@ -112,7 +115,7 @@ struct QuestionView: View {
                     }
                         
                     else {
-                        Text("The solution is hidden")
+                        Text("The solution is hidden...")
                             .frame(width: 300)
                             .padding(.vertical, 20)
                             //.background(Color("atpBlue"))
@@ -141,7 +144,13 @@ struct QuestionView: View {
                     //Next Question
                     Button(action: {
                         self.showing = false
-                        self.question = Question()
+                        
+                        if self.questionURLs.count == 0 {
+                            self.questionURLs.append("https://artofproblemsolving.com/wiki/index.php/20\(Int.random(in: 10..<20))_AMC_8_Problems/Problem_\(Int.random(in: 1..<23))")
+                        }
+                        
+                        self.question = Question(site: self.questionURLs.remove(at: self.questionURLs.count-1))
+                        
                     }) {
                         Text("Next Question")
                             .frame(width: 300)
