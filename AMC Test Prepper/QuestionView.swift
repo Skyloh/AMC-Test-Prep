@@ -184,6 +184,9 @@ struct QuestionView: View {
                         self.showing = false
                         
                         if self.questionURLs.count == 0 {
+                            
+                            // bad idea to compile random strings at runtime, but I don't really care 😎
+                            
                             self.questionURLs.append("https://artofproblemsolving.com/wiki/index.php/20\(Int.random(in: 10..<20))_AMC_8_Problems/Problem_\(Int.random(in: 1..<23))")
                         }
                         
@@ -195,6 +198,7 @@ struct QuestionView: View {
                             
                             Text("Next Question")
                             
+                            // gotta love systemIcons
                             Image(systemName: "chevron.right")
                                 .resizable()
                                 .frame(width:20,height:30)

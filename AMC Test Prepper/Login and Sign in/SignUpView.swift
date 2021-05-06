@@ -9,8 +9,15 @@
 import SwiftUI
 import FirebaseAuth
 
-//delete this aaaaaaaa***adssadf //
-//aaa
+//*
+
+   ---UNUSED---
+
+   Due to time constraints and difficulty, Firebase was not functional.
+   Therefore, active elements were removed in order to increase build speed
+
+*/
+
 struct SignUpView: View {
     @EnvironmentObject var userInfo: UserInfo
     @State var user: UserViewModel = UserViewModel()

@@ -7,7 +7,15 @@
 //
 
 import Foundation
-//delete this aaaaaaaa***
+
+/*
+
+   ---UNUSED---
+
+   Due to time constraints and difficulty, Firebase was not functional.
+   Therefore, active elements were removed in order to increase build speed
+
+*/
 
 struct UserViewModel {
     var email: String = ""

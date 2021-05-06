@@ -9,6 +9,11 @@
 import SwiftUI
 import WebKit
 
+/*
+    Firebase *was* functional, it just did not have any implementation to
+    store any values, i.e. it was useless
+ 
+ */
 
 struct ContentView: View {
     //@EnvironmentObject var userInfo : UserInfo

@@ -9,6 +9,15 @@
 import SwiftUI
 import FirebaseAuth
 
+/*
+
+   ---UNUSED---
+
+   Due to time constraints and difficulty, Firebase was not functional.
+   Therefore, active elements were removed in order to increase build speed
+
+*/
+
 struct SignInWithEmailView: View {
     @EnvironmentObject var userInfo: UserInfo
     @State var user: UserViewModel = UserViewModel()

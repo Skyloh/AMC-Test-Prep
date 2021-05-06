@@ -8,6 +8,17 @@
 
 import Foundation
 import SwiftUI
+
+/*
+
+   ---UNUSED---
+
+   Due to time constraints and difficulty, Firebase was not functional.
+   Therefore, active elements were removed in order to increase build speed
+
+*/
+
+
 class LoadImage{
     class func loadImage(_ urlString: String?) -> UIImage{
         do{

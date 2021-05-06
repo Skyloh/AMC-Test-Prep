@@ -10,6 +10,12 @@ import UIKit
 
 //import Firebase
 
+/*
+
+   Due to unused Firebase, irrelevant method calls removed.
+
+*/
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

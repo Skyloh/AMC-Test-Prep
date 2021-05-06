@@ -61,6 +61,7 @@ class Question{
     
     convenience init() {
         
+        // wooooo nonliteral stringssssss
         let random_string : String = "https://artofproblemsolving.com/wiki/index.php/20\(Int.random(in: 10..<20))_AMC_8_Problems/Problem_\(Int.random(in: 1..<23))"
         
         print("Now loading: " + random_string)
@@ -79,6 +80,8 @@ class Question{
         return Image("")
     }
     
+    
+    // Unused method that would've worked with Cengel's unmerged TagView
     func addTag(tag: String){
         
         if !tags.contains(tag) {
